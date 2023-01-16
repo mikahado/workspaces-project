@@ -1,15 +1,9 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
-  
-  # routes
-
-  get '/' do
-    "home"
-  end
 
   get '/workspaces' do
-    workspaces = Workspace.all
-    workspaces.to_json(include: :services, :reviews)
+    workspaces = Workspace.all.order(:created_at)
+    workspaces.to_json(include: [:services, :reviews])
   end
 
   get '/workspaces/:id' do
