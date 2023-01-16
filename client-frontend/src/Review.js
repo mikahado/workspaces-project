@@ -1,17 +1,21 @@
 import React from 'react'
 
-const Review = ({reviews}) => {
+const Review = ({review}) => {
 
-  const rating = reviews.map(r => r.rating)
-  const comment = reviews.map(r => r.comment)
+  console.log(review.comment)
   
   return (
 
     <div>
       
-      <p>{Math.ceil(ratingsAvg)}/4 stars</p>
-      <button>{ratings.length} reviews</button>
-      
+      <br />
+
+      {review.comment}
+      <br />
+      {review.created_at}
+      <br />
+      <br />
+
     </div>
 
   )

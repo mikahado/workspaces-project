@@ -1,38 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Review from './Review'
 import Service from './Service'
 
 const WorkspaceCard = ({workspace}) => {
 
-const {name, address, reviews, services} = workspace
+    const [showReview, setShowReview] = useState(false)
 
-const service = services.map(s => 
-        <Service 
-            key={s.id}
-            service={s}
-        />
-    )
+    const {name, address, reviews, services} = workspace
 
-const review = reviews.map(r => 
-        <Review 
-            key={r.id}
-            review={r}
-        />
-    )
+    const service = services.map(s => 
+            <Service 
+                key={s.id}
+                service={s}
+            />
+            )
 
-const ratings = reviews.map(r => r.rating) 
-const ratingsAvg = ratings.reduce((a,b) => a + b) / ratings.length 
+    const review = reviews.map(r => 
+            <Review 
+                key={r.id}
+                review={r}
+            />
+            )
+
+    const ratings = reviews.map(r => r.rating) 
+    const ratingsAvg = ratings.reduce((a,b) => a + b) / ratings.length 
+
+    const handleReviewClick = () => {
+        setShowReview(!showReview)
+    }
 
   return (
     <div>
         <h2>{name}</h2>
+        {address}
         <p>photo of workspace</p>
         {service}
-
-        <p>{address}</p>
-        {/* <p>{kindOfPlace}</p>
-        <p>{hasWifi ? "wifi" : "no wifi" }</p> */}
-         {review}
+        <p>{Math.ceil(ratingsAvg)}/4 stars</p>
+        <button onClick={handleReviewClick}>{ratings.length} reviews</button>
+        {showReview ? review : null}
     </div>
   )
 }
