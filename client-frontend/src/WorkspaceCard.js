@@ -32,8 +32,8 @@ const WorkspaceCard = ({workspace}) => {
   return (
     <div>
         <h2>{name}</h2>
-        {address}
         <p>photo of workspace</p>
+        {address}
         {service}
         <p>{Math.ceil(ratingsAvg)}/4 stars</p>
         <button onClick={handleReviewClick}>{ratings.length} reviews</button>
