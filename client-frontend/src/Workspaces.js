@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import WorkspaceCard from './WorkspaceCard'
 
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -13,17 +14,23 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
+
 const Workspaces = () => {
 
-    const [workspaces, setWorkspaces] = useState([])
+  const [workspaces, setWorkspaces] = useState([])
 
-    console.log(workspaces)
+  useEffect(() => {
+      fetch("http://localhost:9292/workspaces")
+      .then(r => r.json())
+      .then((data => setWorkspaces(data)))
+  }, [])
 
-    useEffect(() => {
-        fetch("http://localhost:9292/workspaces")
-        .then(r => r.json())
-        .then((data => setWorkspaces(data)))
-    }, [])
+const workspaceCard = workspaces.map(w => {
+  <WorkspaceCard 
+    key = {w.title}
+    workspace = {w}
+    /> 
+})
 
   return (
     <div>
