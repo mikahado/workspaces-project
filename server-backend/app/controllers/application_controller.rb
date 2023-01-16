@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
 
   get '/workspaces' do
     workspaces = Workspace.all
-    workspaces.to_json
+    workspaces.to_json(include: :services, :reviews)
   end
 
   get '/workspaces/:id' do
@@ -29,16 +29,6 @@ class ApplicationController < Sinatra::Base
     workspace = Workspace.find(params[:id])
     workspace.destroy
     workspace.to_json
-  end
-
-  get '/reviews' do
-    reviews = Review.all
-    reviews.to_json
-  end
-
-  get '/reviews/:id' do
-    review = Review.find(params[:id])
-    review.to_json
   end
 
 end
