@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Home';
+import Workspaces from './Workspaces'
 import Navigation from './Navigation'
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     
   <Router> 
         <Navigation />  
-        
+
       <div className="App">
 
         <Routes>

@@ -1,0 +1,63 @@
+sudo lsof -i :9292
+
+TITLE: 
+
+Workaraunt, workoff, workwing, 
+
+com denom
+
+Busyness. Yakka. Nookout. Caboodle. WholeWork. Public Cubby. Elsework. Otherspace. 
+
+Second ____, Next Nook, Second Spot, Workspaces, 
+
+Worksphere. Workblock. Workpad. Work 
+
+Omni-
+up
+
+Elsewhere, remote, An Office Apart. Oomph Haven. 
+
+Refuge. Rework. 
+
+Haven, Locus, Workabout, Workspot, Nookouts, City Niche, Special Spot, Oriel, Canton, Agora, Yakka, Open Forte, Luxury Slog, Dorpen, Oomph, Stone, City Slogs, Quarter, Work Down, Citizenry, Citiry, Post, Station, Workment, Dugout, shebang, caboodle, Whole Works, Cubby, Table or Booth, Nook, stead, area, Outlets, byplace, Atelier, satellite, Deck, side, exedra, workery, workwing, 
+
+Thanks to a girlfriend, a guitar, and a TV, I have trouble focusing at home. So when I have a full day to dedicate to programming, I MUST venture into the populus to code. Here is a collection of the best FREE places to work in Manhattan. 
+
+Have suggestions? Send them to me here. 
+
+
+
+
+
+POPS 
+
+https://capitalplanning.nyc.gov/map#15.44/40.7706/-73.9815
+
+
+Places to Code at for free in NYC 
+
+Thanks to a girlfriend, a guitar, and a TV, I have trouble focusing at home. So when I have a full day to dedicate to programming, I MUST venture into the populus to code. Here are my top 10 FREE places to code (no cafes allowed) in Manhattan and Brooklyn. Have suggestions? Send them to me here. 
+
+10 St Agnes Library, because it is closest to where I live!
+9
+8
+7 
+6 Resturaunts (Bowery Road, 
+5 POPS with WiFi (David Rubenstein Atrium, 
+4 NYPL Schwarzman Building 
+3 Hotel Lobbies (Marlton, W New York, Ace, Ludlow, Algonquin). 
+2
+1 
+
+Paid
+
+New York Society Library 
+
+POPS
+https://capitalplanning.nyc.gov/map#15.44/40.7706/-73.9815
+
+
+
+Workspace.create(name: "David Rubenstein Atrium,", location: "61 W 62nd St, New York, NY 10023")
+Workspace.create(name: "W New York - Union Square", location: "201 Park Ave S, New York, NY 10003")
+Workspace.create(name: "Bowery Road", location: "132 4th Ave, New York, NY 10003")
