@@ -10,7 +10,7 @@ Workspace.create(name: "Bowery Road", address: "132 4th Ave, New York, NY 10003"
 
 
 Workspace.all.each do |workspace|
-    rand(3..50).times do
+    rand(3..5).times do
         Review.create(rating: rand(1..4), comment: ws_comments.sample, workspace_id: workspace.id)
     end
 end
