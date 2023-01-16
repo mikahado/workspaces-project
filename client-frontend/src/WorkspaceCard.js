@@ -9,18 +9,18 @@ const WorkspaceCard = ({workspace}) => {
     const {name, address, reviews, services} = workspace
 
     const service = services.map(s => 
-            <Service 
-                key={s.id}
-                service={s}
+        <Service 
+            key={s.id}
+            service={s}
             />
-            )
+        )
 
     const review = reviews.map(r => 
-            <Review 
-                key={r.id}
-                review={r}
+        <Review 
+            key={r.id}
+            review={r}
             />
-            )
+        )
 
     const ratings = reviews.map(r => r.rating) 
     const ratingsAvg = ratings.reduce((a,b) => a + b) / ratings.length 

@@ -8,7 +8,6 @@ Workspace.create(name: "David Rubenstein Atrium", address: "61 W 62nd St, New Yo
 Workspace.create(name: "W New York - Union Square", address: "201 Park Ave S, New York, NY 10003")
 Workspace.create(name: "Bowery Road", address: "132 4th Ave, New York, NY 10003")
 
-
 Workspace.all.each do |workspace|
     rand(3..5).times do
         Review.create(rating: rand(1..4), comment: ws_comments.sample, workspace_id: workspace.id)

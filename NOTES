@@ -1,16 +1,23 @@
 sudo lsof -i :9292
 
-TITLE: 
+TITLE IDEAS: 
 
-SideOffice - your office on the side. 
+SideOffice - your office on the side.
+NookOut - the citywide lookout for free work nooks.
+ElseWork - where to work-from-home anywhere else besides the home.
+WorkNook - the citywide lookout for free nooks in the city to work in.
+Oomph! - where to work-from-home away from home.
+Exedra - where to work-from-home away from home.
 
 
+
+
+
+Busyness. Yakka. Nookout. Caboodle. WholeWork. Public Cubby. Elsework. Otherspace. 
 
 Workaraunt, workoff, workwing, 
 
 com denom
-
-Busyness. Yakka. Nookout. Caboodle. WholeWork. Public Cubby. Elsework. Otherspace. 
 
 Second ____, Next Nook, Second Spot, Workspaces, 
 
@@ -25,13 +32,14 @@ Refuge. Rework.
 
 Haven, Locus, Workabout, Workspot, Nookouts, City Niche, Special Spot, Oriel, Canton, Agora, Yakka, Open Forte, Luxury Slog, Dorpen, Oomph, Stone, City Slogs, Quarter, Work Down, Citizenry, Citiry, Post, Station, Workment, Dugout, shebang, caboodle, Whole Works, Cubby, Table or Booth, Nook, stead, area, Outlets, byplace, Atelier, satellite, Deck, side, exedra, workery, workwing, 
 
-Thanks to a girlfriend, a guitar, and a TV, I have trouble focusing at home. So when I have a full day to dedicate to programming, I MUST venture into the populus to code. Here is a collection of the best FREE places to work in Manhattan. 
 
-Have suggestions? Send them to me here. 
+BLOG 
 
+Like many people, I work from home. But thanks to a girlfriend, a guitar, and a TV, I sometimes have trouble focusing on the work itself. So I gotta get out. I live in New York City. There are a TON of places to 'work-from-home' away from home. The problem is that it is New York City, and there are a TON of places in general. I've looked around online, and find little lists of "Top 5 Places to ___" or "Top 10 ____". But a central database that COLLECTS these places, and allows users to suggest more? There isn't one that I've found. So I made it.
 
+Here is a database of the best FREE places to work in Manhattan. 
 
-
+Have suggestions? Add them here, and we will review them. 
 
 POPS 
 
@@ -59,8 +67,6 @@ New York Society Library
 
 POPS
 https://capitalplanning.nyc.gov/map#15.44/40.7706/-73.9815
-
-
 
 Workspace.create(name: "David Rubenstein Atrium,", location: "61 W 62nd St, New York, NY 10023")
 Workspace.create(name: "W New York - Union Square", location: "201 Park Ave S, New York, NY 10003")
