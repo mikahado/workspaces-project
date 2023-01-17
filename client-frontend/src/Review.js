@@ -7,15 +7,12 @@ const Review = ({review}) => {
   return (
 
     <div>
-      
       <br />
-
+      <p></p>
       {review.comment}
       <br />
-      {review.created_at}
+      {review.created_at.slice(0, 10)}
       <br />
-      <br />
-
     </div>
 
   )

@@ -38,9 +38,7 @@ const Workspaces = () => {
 
   return (
     <div>
-        <h1>Workspaces Grid</h1>
-
-        <br /> <br />
+        {/* <h1>Workspaces</h1> */}
 
     <Box sx={{ margin: 3, flexGrow: 1 }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
