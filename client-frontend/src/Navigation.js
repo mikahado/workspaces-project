@@ -39,6 +39,15 @@ function Navigation() {
                 </NavLink>
               </Button>
 
+              <Button>
+                <NavLink
+                  to="/workspaces"
+                  end
+                >
+                  Add
+                </NavLink>
+              </Button>
+
           </ButtonGroup>  
 
         </Box>

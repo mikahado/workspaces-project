@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import WorkspaceCard from './WorkspaceCard'
+import React from 'react'
 
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -15,32 +14,13 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
-const Workspaces = () => {
-
-  const [workspaces, setWorkspaces] = useState([])
-  // const [search, setSearch] = useState("")
-
-
-  useEffect(() => {
-      fetch("http://localhost:9292/workspaces")
-      .then(r => r.json())
-      .then((data => setWorkspaces(data)))
-  }, [])
-
-  // const filterBySearch = workspaces.filter(c => c.name.toLowerCase().includes(search.toLowerCase()))
-
-  const workspaceCard = workspaces.map((w) => 
-    <WorkspaceCard 
-      key={w.id}
-      workspace={w}
-      /> 
-    )
+const WorkspaceAdd = () => {
 
   return (
-    <div>
-        <h2>Workspaces</h2>
 
-    <Box sx={{ margin: 4, flexGrow: 1 }}>
+    <div>
+        
+        <Box sx={{ margin: 4, flexGrow: 1 }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 8, md: 12 }}>
 
         {Array.from(Array).map((_, index) => (
@@ -54,9 +34,10 @@ const Workspaces = () => {
     </Box>
 
 
-    </div>
 
-  )
+    </div>
+  
+    )
 }
 
-export default Workspaces
+export default WorkspaceAdd
