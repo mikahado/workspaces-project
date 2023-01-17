@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Home';
 import Workspaces from './Workspaces'
 import Navigation from './Navigation'
+import WorkspaceAdd from './WorkspaceAdd'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} /> 
           <Route exact path="/workspaces" element={<Workspaces />} /> 
+          <Route exact path="/workspaces" element={<WorkspaceAdd />} /> 
         </Routes>
         
       </div>

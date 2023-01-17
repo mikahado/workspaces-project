@@ -7,12 +7,11 @@ const Review = ({review}) => {
   return (
 
     <div>
-      <br />
-      <p></p>
-      {review.comment}
-      <br />
-      {review.created_at.slice(0, 10)}
-      <br />
+<em> {review.created_at.slice(0, 10)}</em>
+      <p>
+      User{Math.floor(Math.random() * 100)}: {review.comment}
+      </p>
+      <hr />
     </div>
 
   )
