@@ -18,6 +18,8 @@ const Workspaces = () => {
       .then((data => setWorkspaces(data)))
   }, [])
 
+  
+
   function handleDeleteWorkspace(id) {
     const updatedWorkspaces = workspaces.filter((w) => w.id !== id);
     setWorkspaces(updatedWorkspaces);

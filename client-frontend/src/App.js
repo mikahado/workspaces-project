@@ -7,6 +7,11 @@ import WorkspaceAdd from './WorkspaceAdd'
 
 function App() {
 
+
+  function handleAddWorkspace(newWorkspace) {
+    setWorkspaces([...workspaces, newWorkspace]);
+  }
+  
   return (
     
   <Router> 
@@ -17,7 +22,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} /> 
           <Route exact path="/workspaces" element={<Workspaces />} /> 
-          <Route exact path="/workspaces/add" element={<WorkspaceAdd />} /> 
+          <Route exact path="/workspaces/add" element={<WorkspaceAdd onAddWorkspace={handleAddWorkspace} />} /> 
         </Routes>
         
       </div>
