@@ -1,26 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import WorkspaceCard from './WorkspaceCard'
+import Filter from './Filter'
+import Search from './Search'
+import WorkspaceGrid from './WorkspaceGrid'
 
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Unstable_Grid2';
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#90EE90' : '#F8F8FF',
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: 'left',
-  color: theme.palette.text.secondary,
-}));
-
+import Button from '@mui/material/Button';
 
 const Workspaces = () => {
 
   const [workspaces, setWorkspaces] = useState([])
   const [search, setSearch] = useState("")
   const [showFilter, setShowFilter] = useState(false)
-
 
   useEffect(() => {
       fetch("http://localhost:9292/workspaces")
@@ -30,10 +20,6 @@ const Workspaces = () => {
 
   const filterBySearch = workspaces.filter(c => c.name.toLowerCase().includes(search.toLowerCase()))
 
-  const handleChange = (e) => {
-    setSearch(e)
-  }
-
   const workspaceCard = filterBySearch.map((w) => 
     <WorkspaceCard 
       key={w.id}
@@ -41,24 +27,25 @@ const Workspaces = () => {
       /> 
     )
 
+    const handleFilterClick = () => {
+      setShowFilter(!showFilter)
+    }
+
+    const handleSearchChange = (e) => {
+      setSearch(e.target.value)
+      console.log(search)
+    }
+
   return (
     <div>
         <h2>Workspaces</h2>
-        <input onChange={handleChange} value={search}></input>
 
-    <Box sx={{ margin: 4, flexGrow: 1 }}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 8, md: 12 }}>
+        <Search handleSearchChange={handleSearchChange} />
+    
+        <Button onClick={handleFilterClick} variant="contained">{showFilter ? "Hide Filter": "Filter"}</Button>
+        {showFilter ? <Filter /> : null}
 
-        {Array.from(Array).map((_, index) => (
-          workspaceCard.map(w => 
-            <Grid xs={2} sm={4} md={4} key={index}>
-            <Item>{w}</Item>
-          </Grid>)
-        ))}
-
-      </Grid>
-    </Box>
-
+        <WorkspaceGrid workspaceCard={workspaceCard}/>
 
     </div>
 
