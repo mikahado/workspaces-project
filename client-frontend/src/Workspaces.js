@@ -18,12 +18,18 @@ const Workspaces = () => {
       .then((data => setWorkspaces(data)))
   }, [])
 
+  function handleDeleteWorkspace(id) {
+    const updatedWorkspaces = workspaces.filter((w) => w.id !== id);
+    setWorkspaces(updatedWorkspaces);
+  }
+
   const filterBySearch = workspaces.filter(c => c.name.toLowerCase().includes(search.toLowerCase()))
 
   const workspaceCard = filterBySearch.map((w) => 
     <WorkspaceCard 
       key={w.id}
       workspace={w}
+      onWorkspaceDelete={handleDeleteWorkspace}
       /> 
     )
 

@@ -13,14 +13,17 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import Grid from '@mui/material/Grid';
 
-const WorkspaceCard = ({workspace}) => {
+
+const WorkspaceCard = ({workspace, onWorkspaceDelete}) => {
 
     //dialog
     const [open, setOpen] = React.useState(false);
     const [scroll, setScroll] = React.useState('paper');
 
-    const {name, address, reviews, services} = workspace
+    const {id, name, address, reviews, services} = workspace
 
     const service = services.map(s => 
         <Service 
@@ -38,6 +41,14 @@ const WorkspaceCard = ({workspace}) => {
 
     const ratings = reviews.map(r => r.rating) 
     const ratingsAvg = ratings.reduce((a,b) => a + b) / ratings.length 
+
+    function handleDeleteClick() {
+        fetch(`http://localhost:9292/${id}`, {
+          method: "DELETE",
+        });
+    
+        onWorkspaceDelete(id);
+      }
 
 
     //dialog 
@@ -101,6 +112,15 @@ const WorkspaceCard = ({workspace}) => {
                     <Button onClick={handleClose}>Close</Button>
                 </DialogActions>
         </Dialog>
+
+        <Grid container sx={{ color: 'text.primary' }}>
+
+            <Grid item xs={8}>
+                <DeleteOutlinedIcon onClick={handleDeleteClick}/>
+            </Grid>
+        
+        </Grid>
+
 
     </div>
   )
