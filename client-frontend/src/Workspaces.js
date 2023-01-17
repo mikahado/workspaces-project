@@ -7,10 +7,10 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#78909C',
+  backgroundColor: theme.palette.mode === 'dark' ? '#90EE90' : '#F8F8FF',
   ...theme.typography.body2,
   padding: theme.spacing(2),
-  textAlign: 'center',
+  textAlign: 'left',
   color: theme.palette.text.secondary,
 }));
 
@@ -38,7 +38,7 @@ const Workspaces = () => {
 
   return (
     <div>
-        {/* <h1>Workspaces</h1> */}
+        <h2>Workspaces</h2>
 
     <Box sx={{ margin: 2, flexGrow: 1 }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
