@@ -5,11 +5,20 @@ import Service from './Service'
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 
+//dialog
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
 
 const WorkspaceCard = ({workspace}) => {
 
-    const [value, setValue] = React.useState(2);
-    const [showReview, setShowReview] = useState(false)
+    //dialog
+    const [open, setOpen] = React.useState(false);
+    const [scroll, setScroll] = React.useState('paper');
 
     const {name, address, reviews, services} = workspace
 
@@ -30,37 +39,69 @@ const WorkspaceCard = ({workspace}) => {
     const ratings = reviews.map(r => r.rating) 
     const ratingsAvg = ratings.reduce((a,b) => a + b) / ratings.length 
 
-    const handleReviewClick = () => {
-        setShowReview(!showReview)
-    }
+
+    //dialog 
+    const handleClickOpen = (scrollType) => () => {
+        setOpen(true);
+        setScroll(scrollType);
+      };
+    
+      const handleClose = () => {
+        setOpen(false);
+      };
+    
+      const descriptionElementRef = React.useRef(null);
+      React.useEffect(() => {
+        if (open) {
+          const { current: descriptionElement } = descriptionElementRef;
+          if (descriptionElement !== null) {
+            descriptionElement.focus();
+          }
+        }
+      }, [open]);
 
   return (
     <div>
+
         <h2>{name}</h2>
         <p>photo of workspace</p>
         {address}
         {service}
-        <p>{Math.ceil(ratingsAvg)}/4 stars</p>
+        <Rating name="read-only" value={Math.ceil(ratingsAvg)} readOnly />
 
         <Box
             sx={{
                 '& > legend': { mt: 2 },
             }}
             >
-
-            <Rating
-                name="simple-controlled"
-                value={value}
-                onChange={(event, newValue) => {
-                setValue(newValue);
-                }}
-            />
-        
         </Box>
 
+        <Button onClick={handleClickOpen('paper')}>{ratings.length} reviews</Button>
 
-        <button onClick={handleReviewClick}>{ratings.length} reviews</button>
-        {showReview ? review : null}
+        <Dialog
+            open={open}
+            onClose={handleClose}
+            scroll={scroll}
+            aria-labelledby="scroll-dialog-title"
+            aria-describedby="scroll-dialog-description"
+        >
+            <DialogTitle id="scroll-dialog-title">Reviews</DialogTitle>
+            <DialogContent dividers={scroll === 'paper'}>
+            <DialogContentText
+                id="scroll-dialog-description"
+                ref={descriptionElementRef}
+                tabIndex={-1}
+            >
+
+                {review}
+
+            </DialogContentText>
+            </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>Close</Button>
+                </DialogActions>
+        </Dialog>
+
     </div>
   )
 }

@@ -18,7 +18,7 @@ Workspace.create(name: "NYPL Schwarzman Building ", address: "Anywhere.")
 
 Workspace.all.each do |workspace|
     rand(2..8).times do
-        Review.create(rating: rand(1..4), comment: review_comments.sample, workspace_id: workspace.id)
+        Review.create(rating: rand(1..5), comment: review_comments.sample, workspace_id: workspace.id)
     end
 end
 
