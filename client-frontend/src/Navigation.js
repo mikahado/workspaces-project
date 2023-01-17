@@ -41,7 +41,7 @@ function Navigation() {
 
               <Button>
                 <NavLink
-                  to="/workspaces"
+                  to="/workspaces/add"
                   end
                 >
                   Add

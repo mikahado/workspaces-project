@@ -18,7 +18,8 @@ const Item = styled(Paper)(({ theme }) => ({
 const Workspaces = () => {
 
   const [workspaces, setWorkspaces] = useState([])
-  // const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("")
+  const [showFilter, setShowFilter] = useState(false)
 
 
   useEffect(() => {
@@ -27,9 +28,13 @@ const Workspaces = () => {
       .then((data => setWorkspaces(data)))
   }, [])
 
-  // const filterBySearch = workspaces.filter(c => c.name.toLowerCase().includes(search.toLowerCase()))
+  const filterBySearch = workspaces.filter(c => c.name.toLowerCase().includes(search.toLowerCase()))
 
-  const workspaceCard = workspaces.map((w) => 
+  const handleChange = (e) => {
+    setSearch(e)
+  }
+
+  const workspaceCard = filterBySearch.map((w) => 
     <WorkspaceCard 
       key={w.id}
       workspace={w}
@@ -39,6 +44,7 @@ const Workspaces = () => {
   return (
     <div>
         <h2>Workspaces</h2>
+        <input onChange={handleChange} value={search}></input>
 
     <Box sx={{ margin: 4, flexGrow: 1 }}>
       <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 8, md: 12 }}>
