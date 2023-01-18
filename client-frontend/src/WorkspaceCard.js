@@ -43,7 +43,7 @@ const WorkspaceCard = ({workspace, onWorkspaceDelete}) => {
     const ratingsAvg = ratings.reduce((a,b) => a + b) / ratings.length 
 
     function handleDeleteClick() {
-        fetch(`http://localhost:9292/${id}`, {
+        fetch(`http://localhost:9292/workspaces/${id}`, {
           method: "DELETE",
         });
     

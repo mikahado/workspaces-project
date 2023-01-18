@@ -10,7 +10,7 @@ const WorkspaceAdd = ({onAddWorkspace}) => {
   })
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
 
     fetch("http://localhost:9292/workspaces", {
       method: "POST",
@@ -29,31 +29,34 @@ const WorkspaceAdd = ({onAddWorkspace}) => {
       });
   }
 
+  console.log(addWorkspace)
+
 
   return (
 
     <div>
         
       <form onSubmit={handleSubmit}>
-      Name: 
-        <input
-        type="text"
-        name="name"
-        autoComplete="off"
-        value={addWorkspace.name}
-        onChange={(e) => setAddWorkspace(e.target.value)}
-      />
-      Address: 
-        <input
-        type="text"
-        name="address"
-        autoComplete="off"
-        value={addWorkspace.address}
-        onChange={(e) => setAddWorkspace(e.target.value)}
-      />
+        Name: 
+          <input
+          type="text"
+          name="name"
+          autoComplete="off"
+          value={addWorkspace.name}
+          onChange={(e) => setAddWorkspace(e.target.value)}
+        />
+        Address: 
+          <input
+          type="text"
+          name="address"
+          autoComplete="off"
+          value={addWorkspace.address}
+          onChange={(e) => setAddWorkspace(e.target.value)}
+        />
 
 
       <button type="submit">Send</button>
+
     </form>
 
 

@@ -6,24 +6,10 @@ import WorkspaceGrid from './WorkspaceGrid'
 
 import Button from '@mui/material/Button';
 
-const Workspaces = () => {
+const Workspaces = ({workspaces, handleDeleteWorkspace}) => {
 
-  const [workspaces, setWorkspaces] = useState([])
   const [search, setSearch] = useState("")
   const [showFilter, setShowFilter] = useState(false)
-
-  useEffect(() => {
-      fetch("http://localhost:9292/workspaces")
-      .then(r => r.json())
-      .then((data => setWorkspaces(data)))
-  }, [])
-
-  
-
-  function handleDeleteWorkspace(id) {
-    const updatedWorkspaces = workspaces.filter((w) => w.id !== id);
-    setWorkspaces(updatedWorkspaces);
-  }
 
   const filterBySearch = workspaces.filter(c => c.name.toLowerCase().includes(search.toLowerCase()))
 
