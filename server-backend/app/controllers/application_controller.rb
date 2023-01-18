@@ -11,12 +11,12 @@ class ApplicationController < Sinatra::Base
     workspace.to_json(include: [:services, :reviews])
   end
 
-  post '/workspaces/add' do
+  post '/workspaces' do
     workspace = Workspace.create(
-    name: params[:name],
+    title: params[:title],
     address: params[:address]
     )
-    workspace.to_json(include: [:services, :reviews])
+    workspace.to_json
   end
 
   delete '/workspaces/:id' do

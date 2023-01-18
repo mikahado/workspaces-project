@@ -11,7 +11,7 @@ const Workspaces = ({workspaces, handleDeleteWorkspace}) => {
   const [search, setSearch] = useState("")
   const [showFilter, setShowFilter] = useState(false)
 
-  const filterBySearch = workspaces.filter(c => c.name.toLowerCase().includes(search.toLowerCase()))
+  const filterBySearch = workspaces.filter(c => c.title.toLowerCase().includes(search.toLowerCase()))
 
   const workspaceCard = filterBySearch.map((w) => 
     <WorkspaceCard 

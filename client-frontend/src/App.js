@@ -32,7 +32,7 @@ function App() {
       <div className="App">
 
         <Routes>
-          <Route exact path="/" element={<Home />} /> 
+          <Route path="/" element={<Home />} /> 
           <Route exact path="/workspaces" element={<Workspaces workspaces={workspaces} handleDeleteWorkspace={handleDeleteWorkspace}/>} /> 
           <Route exact path="/workspaces/add" element={<WorkspaceAdd onAddWorkspace={handleAddWorkspace} />} /> 
         </Routes>

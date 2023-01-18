@@ -23,7 +23,7 @@ const WorkspaceCard = ({workspace, onWorkspaceDelete}) => {
     const [open, setOpen] = React.useState(false);
     const [scroll, setScroll] = React.useState('paper');
 
-    const {id, name, address, reviews, services} = workspace
+    const {id, title, address, reviews, services} = workspace
 
     const service = services.map(s => 
         <Service 
@@ -74,7 +74,7 @@ const WorkspaceCard = ({workspace, onWorkspaceDelete}) => {
   return (
     <div>
 
-        <h2>{name}</h2>
+        <h2>{title}</h2>
         <p>photo of workspace</p>
         {address}
         {service}
