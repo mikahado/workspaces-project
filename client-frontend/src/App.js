@@ -4,6 +4,7 @@ import Home from './Home';
 import Workspaces from './Workspaces'
 import Navigation from './Navigation'
 import WorkspaceAdd from './WorkspaceAdd'
+import ReviewAdd from './ReviewAdd';
 
 function App() {
 
@@ -23,6 +24,10 @@ function App() {
     const updatedWorkspaces = workspaces.filter((w) => w.id !== id);
     setWorkspaces(updatedWorkspaces);
   }
+
+  const handleAddReview = (newReview) => {
+    setWorkspaces([...workspaces, newReview])
+  }
   
   return (
     
@@ -33,8 +38,8 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} /> 
-          <Route exact path="/workspaces" element={<Workspaces workspaces={workspaces} handleDeleteWorkspace={handleDeleteWorkspace}/>} /> 
-          <Route exact path="/workspaces/add" element={<WorkspaceAdd onAddWorkspace={handleAddWorkspace} />} /> 
+          <Route exact path="/workspaces" element={<Workspaces workspaces={workspaces} handleDeleteWorkspace={handleDeleteWorkspace}/>} onAddReview={handleAddReview} /> 
+          {/* <Route exact path="/workspaces/add" element={<WorkspaceAdd onAddWorkspace={handleAddWorkspace} />} />  */}
         </Routes>
         
       </div>

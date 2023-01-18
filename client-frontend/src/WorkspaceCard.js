@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Review from './Review'
 import Service from './Service'
+import ReviewAdd from './ReviewAdd'
 
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
@@ -17,11 +18,11 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import Grid from '@mui/material/Grid';
 
 
-const WorkspaceCard = ({workspace, onWorkspaceDelete}) => {
+const WorkspaceCard = ({workspace, onWorkspaceDelete, onAddReview}) => {
 
     //dialog
-    const [open, setOpen] = React.useState(false);
-    const [scroll, setScroll] = React.useState('paper');
+    const [open, setOpen] = useState(false);
+    const [scroll, setScroll] = useState('paper');
 
     const {id, title, address, reviews, services} = workspace
 
@@ -48,6 +49,7 @@ const WorkspaceCard = ({workspace, onWorkspaceDelete}) => {
         })
           .then(() => onWorkspaceDelete(id));
       }
+
 
     //dialog 
     const handleClickOpen = (scrollType) => () => {
@@ -94,7 +96,18 @@ const WorkspaceCard = ({workspace, onWorkspaceDelete}) => {
             aria-labelledby="scroll-dialog-title"
             aria-describedby="scroll-dialog-description"
         >
-            <DialogTitle id="scroll-dialog-title">Reviews</DialogTitle>
+            <DialogTitle id="scroll-dialog-title">
+
+              REVIEWS
+              
+              <br />
+              <button >Write a Review</button>
+              
+              <ReviewAdd onAddReview={onAddReview} />
+
+
+
+              </DialogTitle>
             <DialogContent dividers={scroll === 'paper'}>
             <DialogContentText
                 id="scroll-dialog-description"
