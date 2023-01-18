@@ -1,37 +1,45 @@
 import React, { useState } from 'react'
 
-const ReviewAdd = ({onAddReview}) => {
+const ReviewAdd = ({onAddReview, reviews}) => {
+
+  const workspace_ids = reviews.map(r => r.workspace_id)
+  const workspace_id = workspace_ids[0]
 
   const [review, setReview] = useState({
     rating: 3,
-    comment: ""
+    comment: "",
+    workspace_id: workspace_id
   })
 
-  console.log(review)
-
+  
   const handleReviewSubmit = (e) => {
     e.preventDefault()
 
-    // const newPost = {
-    //   rating: review.rating,
-    //   comment: review.comment
-    // }
+    const newReview = {
+      rating: review.rating,
+      comment: review.comment,
+      workspace_id: review.workspace_id
+    }
 
-    fetch("http://localhost:9292/reviews", {
+    fetch(`http://localhost:9292/reviews/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(review),
+      body: JSON.stringify(newReview),
     })
       .then((r) => r.json())
       .then((newData) => {
         onAddReview(newData);
-        setReview("");
+        setReview({comment: ""});
       });
   }
 
   const handleChangeReview = (e) => {
+    setReview({...review, [e.target.name]: e.target.value})
+  }
+
+  const handleChangeRating = (e) => {
     setReview({...review, [e.target.name]: e.target.value})
   }
    
@@ -39,6 +47,15 @@ const ReviewAdd = ({onAddReview}) => {
     <div>
         <form onSubmit={handleReviewSubmit}>
           <input type="text" name="comment" value={review.comment} onChange={handleChangeReview} />
+          <div>
+            Your Rating: 
+            <label> 1<input type="radio" name="rating" value={1} onChange={handleChangeRating}/> | </label>
+            <label>2<input type="radio" name="rating" value={2} onChange={handleChangeRating}/> | </label>
+            <label>3<input type="radio" name="rating" value={3} onChange={handleChangeRating}/> | </label>
+            <label>4<input type="radio" name="rating" value={4} onChange={handleChangeRating}/> | </label>
+            <label>5<input type="radio" name="rating" value={5} onChange={handleChangeRating}/> | </label>
+          </div>
+          
 
           <button type="submit">Submit</button>
 

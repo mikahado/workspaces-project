@@ -2,17 +2,19 @@ import React from 'react'
 
 const Review = ({review}) => {
 
-  console.log(review.comment)
-  
+
   return (
 
     <div>
-<em> {review.created_at.slice(0, 10)}</em>
+      <em> {review.created_at.slice(0, 10)}</em>
       <p>
       User{Math.floor(Math.random() * 100)}: {review.comment}
       </p>
       <hr />
+
     </div>
+
+           
 
   )
 }

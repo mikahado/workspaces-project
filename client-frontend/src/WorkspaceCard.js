@@ -103,8 +103,7 @@ const WorkspaceCard = ({workspace, onWorkspaceDelete, onAddReview}) => {
               <br />
               <button >Write a Review</button>
               
-              <ReviewAdd onAddReview={onAddReview} />
-
+              <ReviewAdd onAddReview={onAddReview} reviews={reviews}/>
 
 
               </DialogTitle>
@@ -126,9 +125,7 @@ const WorkspaceCard = ({workspace, onWorkspaceDelete, onAddReview}) => {
 
         <Grid container sx={{ color: 'text.primary' }}>
 
-            <Grid item xs={8}>
-                <DeleteOutlinedIcon onClick={handleDeleteClick}/>
-            </Grid>
+      
         
         </Grid>
 
