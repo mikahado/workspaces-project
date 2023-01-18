@@ -14,7 +14,7 @@ function App() {
     .then((data => setWorkspaces(data)))
 }, [])
 
-  function handleDeleteWorkspace(id) {
+  function handleDeleteReview(id) {
     const updatedWorkspaces = workspaces.filter((w) => w.id !== id);
     setWorkspaces(updatedWorkspaces);
   }
@@ -32,7 +32,10 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} /> 
-          <Route exact path="/workspaces" element={<Workspaces workspaces={workspaces} handleDeleteWorkspace={handleDeleteWorkspace}/>} onAddReview={handleAddReview} /> 
+          <Route exact path="/workspaces" element={
+            <Workspaces workspaces={workspaces} 
+                onDeleteReview={handleDeleteReview}
+                onAddReview={handleAddReview} />} /> 
         </Routes>
         
       </div>

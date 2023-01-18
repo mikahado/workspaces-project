@@ -2,15 +2,17 @@ import React, { useState } from 'react'
 
 const ReviewAdd = ({onAddReview, reviews}) => {
 
-  const workspace_ids = reviews.map(r => r.workspace_id)
-  const workspace_id = workspace_ids[0]
+  //line 6 returns undefined
+  //const {workspace_id} = reviews
 
+  //line 8 works
+  const workspace_id = reviews.map(r => r.workspace_id)[0]
+  
   const [review, setReview] = useState({
     rating: 3,
     comment: "",
     workspace_id: workspace_id
   })
-
   
   const handleReviewSubmit = (e) => {
     e.preventDefault()
@@ -56,7 +58,6 @@ const ReviewAdd = ({onAddReview, reviews}) => {
             <label>5<input type="radio" name="rating" value={5} onChange={handleChangeRating}/> | </label>
           </div>
           
-
           <button type="submit">Submit</button>
 
         </form>

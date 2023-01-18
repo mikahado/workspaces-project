@@ -16,11 +16,11 @@ class ApplicationController < Sinatra::Base
     workspace.to_json(include: [:services, :reviews])
   end
 
-  delete '/workspaces/:id' do
-    workspace = Workspace.find(params[:id])
-    workspace.destroy
-    workspace.to_json(include: [:services, :reviews])
-  end
+  # delete '/workspaces/:id' do
+  #   workspace = Workspace.find(params[:id])
+  #   workspace.destroy
+  #   workspace.to_json(include: [:services, :reviews])
+  # end
 
   # post '/workspaces/add' do
   #   workspace = Workspace.create(
@@ -41,6 +41,12 @@ class ApplicationController < Sinatra::Base
         comment: params[:comment] ,
         workspace_id: params[:workspace_id]
     )
+    review.to_json
+  end
+
+  delete '/reviews/:id' do
+    review = Review.find(params[:id])
+    review.destroy
     review.to_json
   end
 

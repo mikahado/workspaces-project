@@ -18,7 +18,7 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import Grid from '@mui/material/Grid';
 
 
-const WorkspaceCard = ({workspace, onWorkspaceDelete, onAddReview}) => {
+const WorkspaceCard = ({workspace, onDeleteReview, onAddReview}) => {
 
     //dialog
     const [open, setOpen] = useState(false);
@@ -37,18 +37,14 @@ const WorkspaceCard = ({workspace, onWorkspaceDelete, onAddReview}) => {
         <Review 
             key={r.id}
             review={r}
+            onDeleteReview={onDeleteReview}
             />
         )
 
     const ratings = reviews.map(r => r.rating) 
     const ratingsAvg = ratings.reduce((a,b) => a + b) / ratings.length 
 
-    function handleDeleteClick() {
-        fetch(`http://localhost:9292/workspaces/${id}`, {
-          method: "DELETE",
-        })
-          .then(() => onWorkspaceDelete(id));
-      }
+   
 
 
     //dialog 
@@ -114,7 +110,8 @@ const WorkspaceCard = ({workspace, onWorkspaceDelete, onAddReview}) => {
                 tabIndex={-1}
             >
 
-                {review}
+              {/* This is where teh error comes from */}
+              {review}
 
             </DialogContentText>
             </DialogContent>
@@ -128,7 +125,7 @@ const WorkspaceCard = ({workspace, onWorkspaceDelete, onAddReview}) => {
       
         
         </Grid>
-
+        
     </div>
   )
 }
