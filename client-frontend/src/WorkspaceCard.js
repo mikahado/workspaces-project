@@ -45,11 +45,9 @@ const WorkspaceCard = ({workspace, onWorkspaceDelete}) => {
     function handleDeleteClick() {
         fetch(`http://localhost:9292/workspaces/${id}`, {
           method: "DELETE",
-        });
-    
-        onWorkspaceDelete(id);
+        })
+          .then(() => onWorkspaceDelete(id));
       }
-
 
     //dialog 
     const handleClickOpen = (scrollType) => () => {
@@ -120,7 +118,6 @@ const WorkspaceCard = ({workspace, onWorkspaceDelete}) => {
             </Grid>
         
         </Grid>
-
 
     </div>
   )

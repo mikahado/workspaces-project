@@ -31,8 +31,9 @@ const Workspaces = ({workspaces, handleDeleteWorkspace}) => {
     }
 
   return (
-    <div>
-        <h2>Workspaces</h2>
+
+    <div >
+        <h2 >Workspaces</h2>
 
         <Search handleSearchChange={handleSearchChange} />
     

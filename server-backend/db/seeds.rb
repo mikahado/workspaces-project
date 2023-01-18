@@ -1,6 +1,6 @@
-puts "🌱 Seeding messages..."
+puts "🌱 seedin' time"
 
-review_comments = ["Great stuff.", "Is good.", "Favorite place in all the world", "Nothing special, but you can get your work done.", "It's fine -- very OK", "Has a floor? Nothing much else. I think I'm lost.", "Avoid like the plague.", "This is my world. I can't stop loving it.", "Good lighting but way too many rats.", "Cute! But no bathrooms.", "Never again!", "I basically finished my degree here!", "I failed ALL my classes here. It is cursed.", "It feels like I'm spinning in place.", "Literally no tables! Why is it even on this amazing site? PLEASE DELETE!", "Super fancy, but super judgy. Who cares if I'm still running Windows 95? It's none of their business.", "Great!", "Good stuff.", "OK", "Pure bad.", "Ughghghgh!", "NOPE!", "Hell yeah, I met my husband here.", "This is the place.", "Where even am I?", "GET OUT ASAP", "What is this?"]
+review_comments = ["Great stuff. It's as if heaven was here on earth!", "Is good ... I guess ... I think.", "My favorite place in the entire world!!!", "Nothin' special. But refills are free so that's cool.", "It's fine -- very OK. I would say it is remarkably middling.", "There are lots of hallways? Nothing else. I think I'm lost. Please help!", "Avoid this dump like the plague.", "This is my NEST. I can't stop loving it. Please stay here forever.", "Good lighting but WAYYYY too many rats.", "Cute! But no bathrooms.", "Never again! Ok unless they fix the giant hole in the ceiling, I'm done.", "I basically finished my degree here. Anyone hiring?", "Cursed! I failed ALL my classes here.", "It feels like I'm spinning in place.", "Literally no tables! Why is it even on this amazing site? PLEASE DELETE!", "Super fancy, but super judgy. Who cares if I'm still running Windows 95? It's none of their business.", "Great!", "Good stuff.", "OK", "Pure bad.", "Ughghghgh! Why do I even try. Like most places, it smells like humans.", "NOPE!", "Hell yeah, I met my husband here.", "This is the place.", "Where even am I? Is this supposed to be a place? How tho.", "GET OUT ASAP. They're coming!", "What is this? I kind of love it."]
 
 kind_of_place = ["I don't know.", "Cafe", "Hotel Lobby", "POPS", "Library", "Resturaunt", "Diner", "Random Nook", "Museum"]
 
@@ -26,4 +26,4 @@ Workspace.all.each do |workspace|
     Service.create(kind_of_place: kind_of_place.sample, has_wifi: [true, false].sample, description: " . . . ", workspace_id: workspace.id)
 end
 
-puts "✅ Done seeding!"
+puts "✅ done plantin' "

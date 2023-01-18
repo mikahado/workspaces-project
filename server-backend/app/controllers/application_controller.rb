@@ -1,6 +1,11 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
 
+  # 
+
+  get '/' do 
+  end
+
   get '/workspaces' do
     workspaces = Workspace.all
     workspaces.to_json(include: [:services, :reviews])
@@ -11,7 +16,7 @@ class ApplicationController < Sinatra::Base
     workspace.to_json(include: [:services, :reviews])
   end
 
-  post '/workspaces' do
+  post '/workspaces/add' do
     workspace = Workspace.create(
     title: params[:title],
     address: params[:address]
