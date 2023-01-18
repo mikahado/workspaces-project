@@ -39,7 +39,6 @@ const WorkspaceAdd = ({onAddWorkspace}) => {
 
   console.log(addWorkspace)
 
-
   return (
 
     <div>

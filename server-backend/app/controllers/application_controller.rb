@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
     title: params[:title],
     address: params[:address]
     )
-    workspace.to_json
+    workspace.to_json(include: [:services, :reviews])
   end
 
   delete '/workspaces/:id' do
