@@ -4,8 +4,7 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 
 const Review = ({review, onDeleteReview}) => {
 
-
-  const {id} = review
+  const {id, rating, comment, workspace_id, updated_at} = review
 
 
   const handleDeleteClick = () => {
@@ -23,19 +22,16 @@ const Review = ({review, onDeleteReview}) => {
 
     <div>
         <div>
-        <em> {review.created_at.slice(0, 10)}</em>
+        <em> {updated_at.slice(0, 10)}</em>
         </div>
         <p>
-        User{Math.floor(Math.random() * 100)}: {review.comment}
+        User{Math.floor(Math.random() * 100)}: {comment}
         </p>
         <div>
           <DeleteOutlineOutlinedIcon onClick={handleDeleteClick} />
           <ModeEditIcon onClick={handleUpdate}/>
        </div>
       <hr />
-
-      
-
 
     </div>         
 

@@ -6,22 +6,28 @@ import Navigation from './Navigation'
 
 function App() {
 
-  const [workspaces, setWorkspaces] = useState([])
+  const [workspaces, setWorkspaces] = useState([
+  ])
 
-  useEffect(() => {
-    fetch("http://localhost:9292/workspaces")
-    .then(r => r.json())
-    .then((data => setWorkspaces(data)))
-}, [])
+    useEffect(() => {
+      fetch("http://localhost:9292/workspaces")
+      .then(r => r.json())
+      .then((data => setWorkspaces(data)))
+  }, [])
 
-  function handleDeleteReview(id) {
-    const updatedWorkspaces = workspaces.filter((w) => w.id !== id);
-    setWorkspaces(updatedWorkspaces);
-  }
+
+//the ADD and DELETE functions below do not locate the nested data in workspaces > reviews.
 
   const handleAddReview = (newReview) => {
-    setWorkspaces([...workspaces, newReview])
+    const newArray = [...workspaces, newReview]
+    setWorkspaces(newArray)
   }
+
+  const handleDeleteReview = (id) => {
+    setWorkspaces(review => 
+      review.filter(r => r.id !== id))
+  }
+
   
   return (
     
@@ -31,13 +37,12 @@ function App() {
       <div className="App">
 
         <Routes>
-          <Route path="/" element={<Home />} /> 
+          <Route exact path="/" element={<Home />} /> 
           <Route exact path="/workspaces" element={
             <Workspaces workspaces={workspaces} 
                 onDeleteReview={handleDeleteReview}
                 onAddReview={handleAddReview} />} /> 
         </Routes>
-        
       </div>
      
   </Router>

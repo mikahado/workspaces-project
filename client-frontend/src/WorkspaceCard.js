@@ -14,7 +14,6 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import Grid from '@mui/material/Grid';
 
 
@@ -24,8 +23,19 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview}) => {
     const [open, setOpen] = useState(false);
     const [scroll, setScroll] = useState('paper');
 
-    const {id, title, address, reviews, services} = workspace
+    const {title, address, reviews, services} = workspace
 
+    //   useEffect(() => {
+    //     fetch("http://localhost:9292/reviews")
+    //     .then(r => r.json())
+    //     .then((data => setWsReviews(data)))
+    // }, [])
+
+    // const handleDeleteReview = (id) => {
+    //   const updatedReviews = wsReviews.filter((w) => w.id !== id);
+    //   setWsReviews(updatedReviews);
+    // }
+    
     const service = services.map(s => 
         <Service 
             key={s.id}
@@ -43,9 +53,6 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview}) => {
 
     const ratings = reviews.map(r => r.rating) 
     const ratingsAvg = ratings.reduce((a,b) => a + b) / ratings.length 
-
-   
-
 
     //dialog 
     const handleClickOpen = (scrollType) => () => {
@@ -96,21 +103,21 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview}) => {
 
               REVIEWS
               
-              <br />
-              <button >Write a Review</button>
-              
-              <ReviewAdd onAddReview={onAddReview} reviews={reviews}/>
-
-
-              </DialogTitle>
+            </DialogTitle>
             <DialogContent dividers={scroll === 'paper'}>
             <DialogContentText
                 id="scroll-dialog-description"
                 ref={descriptionElementRef}
                 tabIndex={-1}
             >
+              <br />
+              <button >Write a Review</button>
+              <ReviewAdd onAddReview={onAddReview} reviews={reviews}/>
 
-              {/* This is where teh error comes from */}
+              <br />
+              <hr />
+              <hr />
+              {/* This is where the error comes from */}
               {review}
 
             </DialogContentText>

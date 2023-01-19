@@ -5,6 +5,7 @@ review_comments = ["Great stuff. It's as if heaven was here on earth!", "Is good
 kind_of_place = ["Cafe", "Hotel Lobby", "POPS", "Library", "Resturaunt", "Diner", "Random Nook", "Museum"]
 
 Workspace.create(title: "David Rubenstein Atrium", address: "61 W 62nd St, New York, NY 10023")
+
 Workspace.create(title: "W New York - Union Square", address: "201 Park Ave S, New York, NY 10003")
 Workspace.create(title: "Bowery Road", address: "132 4th Ave, New York, NY 10003")
 Workspace.create(title: "MUD Cafe", address: "307 E 9th St, New York, NY 10003")

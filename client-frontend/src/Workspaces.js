@@ -6,7 +6,7 @@ import WorkspaceGrid from './WorkspaceGrid'
 
 import Button from '@mui/material/Button';
 
-const Workspaces = ({workspaces, onDeleteReview}) => {
+const Workspaces = ({workspaces, onDeleteReview, onAddReview}) => {
 
   const [search, setSearch] = useState("")
   const [showFilter, setShowFilter] = useState(false)
@@ -18,8 +18,10 @@ const Workspaces = ({workspaces, onDeleteReview}) => {
       key={w.id}
       workspace={w}
       onDeleteReview={onDeleteReview}
+      onAddReview={onAddReview}
       /> 
     )
+   
 
     const handleFilterClick = () => {
       setShowFilter(!showFilter)

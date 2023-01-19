@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 const ReviewAdd = ({onAddReview, reviews}) => {
 
+  //solution for including workspace_id:
   //line 6 returns undefined
   //const {workspace_id} = reviews
 
@@ -23,7 +24,7 @@ const ReviewAdd = ({onAddReview, reviews}) => {
       workspace_id: review.workspace_id
     }
 
-    fetch(`http://localhost:9292/reviews/`, {
+    fetch(`http://localhost:9292/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
