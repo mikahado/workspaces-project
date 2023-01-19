@@ -3,10 +3,12 @@ import { NavLink } from "react-router-dom";
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
+import Diversity2RoundedIcon from '@mui/icons-material/Diversity2Rounded';
 
 function Navigation() {
   return (
     <div>
+      <br />
 
       <Box
             sx={{
@@ -26,7 +28,7 @@ function Navigation() {
                   to="/"
                   end
                 >
-                  Home
+                  {<Diversity2RoundedIcon />}
                 </NavLink>
               </Button>
 
@@ -38,15 +40,6 @@ function Navigation() {
                   Workspaces
                 </NavLink>
               </Button>
-
-              {/* <Button>
-                <NavLink
-                  to="/workspaces/add"
-                  end
-                >
-                  Add
-                </NavLink>
-              </Button> */}
 
           </ButtonGroup>  
 

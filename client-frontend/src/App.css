@@ -1,16 +1,17 @@
 
 :root {
   background-color: #252523;
-  padding-top: 2em;
-  padding-left: 3em;
-  padding-right: 3em;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+
   
 }
 
 .App {
   text-align: center;
-  background: #fff6f3;
   color: 0e1829;
+  border-radius: 40px;
 }
 
 

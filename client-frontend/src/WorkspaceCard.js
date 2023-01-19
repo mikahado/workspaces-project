@@ -16,14 +16,18 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 import Grid from '@mui/material/Grid';
 
-
 const WorkspaceCard = ({workspace, onDeleteReview, onAddReview}) => {
+
+  const imgs = './img'
+  console.log(imgs)
+  // const imgsArray = imgs.map(i => i)
+  
 
     //dialog
     const [open, setOpen] = useState(false);
     const [scroll, setScroll] = useState('paper');
 
-    const {title, address, reviews, services} = workspace
+    const {id, title, address, reviews, services} = workspace
 
     //   useEffect(() => {
     //     fetch("http://localhost:9292/reviews")
@@ -54,7 +58,7 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview}) => {
     const ratings = reviews.map(r => r.rating) 
     const ratingsAvg = ratings.reduce((a,b) => a + b) / ratings.length 
 
-    //dialog 
+    //dialog box
     const handleClickOpen = (scrollType) => () => {
         setOpen(true);
         setScroll(scrollType);
@@ -74,11 +78,17 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview}) => {
         }
       }, [open]);
 
+
+      const imgArray = (id) => {
+
+      }
+
   return (
     <div>
 
         <h2>{title}</h2>
-        <p>photo of workspace</p>
+        <p>[photo of workspace]</p>
+        <p></p>
         {address}
         {service}
         <Rating name="read-only" value={Math.ceil(ratingsAvg)} readOnly />

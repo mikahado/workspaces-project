@@ -32,6 +32,10 @@ const Workspaces = ({workspaces, onDeleteReview, onAddReview}) => {
       console.log(search)
     }
 
+    const handleFilterChange = () => {
+      
+    }
+
   return (
 
     <div >
@@ -39,7 +43,7 @@ const Workspaces = ({workspaces, onDeleteReview, onAddReview}) => {
 
         <Search handleSearchChange={handleSearchChange} />
     
-        <Button onClick={handleFilterClick} variant="contained">{showFilter ? "Hide Filter": "Filter"}</Button>
+        <Button onClick={handleFilterClick} variant="contained">{showFilter ? "Hide": "Filter"}</Button>
         {showFilter ? <Filter /> : null}
 
         <WorkspaceGrid workspaceCard={workspaceCard}/>
