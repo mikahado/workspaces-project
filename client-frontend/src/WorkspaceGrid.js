@@ -15,7 +15,6 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const WorkspaceGrid = ({workspaceCard}) => {
 
-
   return (
     <div>
         
@@ -23,7 +22,9 @@ const WorkspaceGrid = ({workspaceCard}) => {
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 8, md: 12 }}>
 
             {Array.from(Array).map((_, index) => (
+
               workspaceCard.map(w => 
+                
                 <Grid xs={2} sm={4} md={4} key={index}>
                 <Item>{w}</Item>
               </Grid>)

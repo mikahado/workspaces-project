@@ -3,10 +3,10 @@ import React, { useState } from 'react'
 const ReviewAdd = ({onAddReview, reviews}) => {
 
   //solution for including workspace_id:
-  //line 6 returns undefined
+  //line below returns undefined
   //const {workspace_id} = reviews
 
-  //line 8 works
+  //line below works
   const workspace_id = reviews.map(r => r.workspace_id)[0]
   
   const [review, setReview] = useState({
@@ -24,7 +24,7 @@ const ReviewAdd = ({onAddReview, reviews}) => {
       workspace_id: review.workspace_id
     }
 
-    fetch(`http://localhost:9292/reviews`, {
+    fetch('http://localhost:9292/workspaces', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +34,6 @@ const ReviewAdd = ({onAddReview, reviews}) => {
       .then((r) => r.json())
       .then((newData) => {
         onAddReview(newData);
-        setReview({comment: ""});
       });
   }
 
