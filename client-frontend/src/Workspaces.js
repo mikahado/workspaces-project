@@ -39,8 +39,9 @@ const Workspaces = ({workspaces, onDeleteReview, onAddReview}) => {
   return (
 
     <div >
-        <h2 >Workspaces</h2>
+        <h1 > WORKSPACES</h1>
 
+        
         <Search handleSearchChange={handleSearchChange} />
     
         <Button onClick={handleFilterClick} variant="contained">{showFilter ? "Hide": "Filter"}</Button>

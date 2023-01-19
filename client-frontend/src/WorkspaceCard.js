@@ -16,16 +16,17 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 import Grid from '@mui/material/Grid';
 
+
 const WorkspaceCard = ({workspace, onDeleteReview, onAddReview}) => {
 
-  const imgs = './img'
-  console.log(imgs)
-  // const imgsArray = imgs.map(i => i)
-  
+
+  const [showReview, setShowReview] = useState(false)
 
     //dialog
     const [open, setOpen] = useState(false);
     const [scroll, setScroll] = useState('paper');
+
+
 
     const {id, title, address, reviews, services} = workspace
 
@@ -79,9 +80,10 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview}) => {
       }, [open]);
 
 
-      const imgArray = (id) => {
-
+      const handleShowReviewClick = () => {
+        setShowReview(!showReview)
       }
+      console.log(handleShowReviewClick)
 
   return (
     <div>
@@ -111,7 +113,7 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview}) => {
         >
             <DialogTitle id="scroll-dialog-title">
 
-              REVIEWS
+              ~REVIEWS~
               
             </DialogTitle>
             <DialogContent dividers={scroll === 'paper'}>
@@ -120,9 +122,10 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview}) => {
                 ref={descriptionElementRef}
                 tabIndex={-1}
             >
+              <Button variant="outlined" onClick={handleShowReviewClick}>Write a Review</Button>
               <br />
-              <button >Write a Review</button>
-              <ReviewAdd onAddReview={onAddReview} reviews={reviews}/>
+
+              {showReview ? <ReviewAdd onAddReview={onAddReview} reviews={reviews} /> : null}
 
               <br />
               <hr />

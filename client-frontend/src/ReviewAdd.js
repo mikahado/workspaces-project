@@ -47,17 +47,20 @@ const ReviewAdd = ({onAddReview, reviews}) => {
   }
    
   return (
-    <div>
+    <div className="App">
         <form onSubmit={handleReviewSubmit}>
-          <input type="text" name="comment" value={review.comment} onChange={handleChangeReview} />
-          <div>
-            Your Rating: 
-            <label> 1<input type="radio" name="rating" value={1} onChange={handleChangeRating}/> | </label>
-            <label>2<input type="radio" name="rating" value={2} onChange={handleChangeRating}/> | </label>
-            <label>3<input type="radio" name="rating" value={3} onChange={handleChangeRating}/> | </label>
-            <label>4<input type="radio" name="rating" value={4} onChange={handleChangeRating}/> | </label>
-            <label>5<input type="radio" name="rating" value={5} onChange={handleChangeRating}/> | </label>
+          <br />
+          <label>Comment </label><br/> <input type="textarea" name="comment" value={review.comment} onChange={handleChangeReview} />
+          <br /><br />
+          <label>Rate</label>
+          <div>          
+            <label>1★<input type="radio" name="rating" value={1} onChange={handleChangeRating}/> &nbsp; </label>
+            <label>2★<input type="radio" name="rating" value={2} onChange={handleChangeRating}/> &nbsp; </label>
+            <label>3★<input type="radio" name="rating" value={3} onChange={handleChangeRating}/> &nbsp; </label>
+            <label>4★<input type="radio" name="rating" value={4} onChange={handleChangeRating}/> &nbsp; </label>
+            <label>5★<input type="radio" name="rating" value={5} onChange={handleChangeRating}/> &nbsp; </label>
           </div>
+          <br />
           
           <button type="submit">Submit</button>
 

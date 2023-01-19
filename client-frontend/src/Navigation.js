@@ -37,7 +37,7 @@ function Navigation() {
                   to="/workspaces"
                   end
                 >
-                  Workspaces
+                  Workspaces 
                 </NavLink>
               </Button>
 

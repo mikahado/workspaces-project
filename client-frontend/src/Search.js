@@ -16,7 +16,7 @@ const Search = ({handleSearchChange}) => {
             noValidate
             autoComplete="off"
           >
-            <TextField id="outlined-basic" onChange={handleSearchChange} variant="outlined" placeholder="Search"/>
+            <TextField id="outlined-basic" onChange={handleSearchChange} variant="outlined" placeholder="Search NYC"/>
 
           </Box>
           <br />
