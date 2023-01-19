@@ -2,7 +2,6 @@ import React from 'react'
 
 const Service = ({service}) => {
 
-
   return (
     <div>
        <p>{service.kind_of_place}</p>

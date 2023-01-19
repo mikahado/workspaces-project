@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import ReviewAdd from './ReviewAdd'
 import Review from './Review'
 
@@ -13,6 +13,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 const WorkspaceDialog = ({reviews, allRatings, onAddReview, onDeleteReview}) => {
 
     const [showReview, setShowReview] = useState(false)
+    
     const [open, setOpen] = useState(false);
     const [scroll, setScroll] = useState('paper');
 
@@ -23,7 +24,6 @@ const WorkspaceDialog = ({reviews, allRatings, onAddReview, onDeleteReview}) => 
             onDeleteReview={onDeleteReview}
             />
         )
-
 
     const handleClickOpen = (scrollType) => () => {
         setOpen(true);

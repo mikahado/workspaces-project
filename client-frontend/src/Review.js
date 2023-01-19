@@ -17,7 +17,7 @@ const Review = ({review, onDeleteReview}) => {
     }
 
   const handleUpdate = () => {
-    // console.log("update!")
+    //todo
   }
 
   // let review_comment = ""

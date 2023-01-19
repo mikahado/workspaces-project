@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import WorkspaceCard from './WorkspaceCard'
 import Filter from './Filter'
 import Search from './Search'
@@ -11,7 +11,6 @@ const Workspaces = ({workspaces, onDeleteReview, onAddReview}) => {
   const [search, setSearch] = useState("")
   const [showFilter, setShowFilter] = useState(false)
 
- 
   const filterBySearch = workspaces.filter(c => c.title.toLowerCase().includes(search.toLowerCase()))
 
   const workspaceCard = filterBySearch.map((w) => 
@@ -22,15 +21,13 @@ const Workspaces = ({workspaces, onDeleteReview, onAddReview}) => {
       onAddReview={onAddReview}
       /> 
     )
-   
-
-    const handleFilterClick = () => {
-      setShowFilter(!showFilter)
-    }
 
     const handleSearchChange = (e) => {
       setSearch(e.target.value)
-      console.log(search)
+    }
+   
+    const handleFilterClick = () => {
+      setShowFilter(!showFilter)
     }
 
     const handleFilterChange = () => {
@@ -41,7 +38,6 @@ const Workspaces = ({workspaces, onDeleteReview, onAddReview}) => {
 
     <div >
         <h1 > WORKSPACES</h1>
-
         
         <Search handleSearchChange={handleSearchChange} />
     
