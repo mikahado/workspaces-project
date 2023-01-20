@@ -9,6 +9,7 @@ const Workspace = () => {
     const [workspace, setWorkspace] = useState({
         reviews: []
     })
+  
     const [showReview, setShowReview] = useState(false)
 
     const params = useParams()
@@ -17,7 +18,6 @@ const Workspace = () => {
         fetch(`http://localhost:9292/workspaces/${params.id}`)
         .then(r => r.json())
         .then(data => {
-            console.log(data)
             setWorkspace(data)
         })
     }, [])
@@ -30,7 +30,7 @@ const Workspace = () => {
     }
 
     const onReviewDelete = (id) => {
-        const updatedReviews = workspace.reviews.filter((w) => w.id !== id);
+        const updatedReviews = workspace.reviews.filter((w) => w.id !== id);     
         setWorkspace(updatedReviews);
         }
 
@@ -40,8 +40,7 @@ const Workspace = () => {
   }
 
     const reviewItems = workspace.reviews.map(w => 
-        <Review key={w.id} review={w} onDeleteReview={handleDeleteReview}/> 
-        )
+        <Review key={w.id} review={w} onDeleteReview={handleDeleteReview}/> )
     
     const handleShowReviewClick = ({onAddReview}) => {
         setShowReview(!showReview)
