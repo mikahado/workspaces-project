@@ -13,7 +13,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 const WorkspaceDialog = ({reviews, allRatings, onAddReview, onDeleteReview}) => {
 
     const [showReview, setShowReview] = useState(false)
-    
+
     const [open, setOpen] = useState(false);
     const [scroll, setScroll] = useState('paper');
 
@@ -74,7 +74,7 @@ const WorkspaceDialog = ({reviews, allRatings, onAddReview, onDeleteReview}) => 
               <Button variant="outlined" onClick={handleShowReviewClick}>Write a Review</Button>
               <br />
 
-              {showReview ? <ReviewAdd onAddReview={onAddReview} reviews={reviews} /> : null}
+              {showReview ? <ReviewAdd onAddReview={onAddReview} reviews={reviews} handleClose={handleClose} /> : null}
 
               <br />
               <hr />

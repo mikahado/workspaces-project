@@ -1,12 +1,7 @@
 import React, { useState } from 'react'
 
-const ReviewAdd = ({onAddReview, reviews}) => {
+const ReviewAdd = ({onAddReview, reviews, handleClose}) => {
 
-  //solution for including workspace_id:
-  //line below returns undefined
-  //const {workspace_id} = reviews
-
-  //line below works
   const workspace_id = reviews.map(r => r.workspace_id)[0]
   
   const [review, setReview] = useState({
@@ -35,6 +30,8 @@ const ReviewAdd = ({onAddReview, reviews}) => {
       .then((newData) => {
         onAddReview(newData);
       });
+
+      handleClose()
   }
 
   const handleChangeReview = (e) => {

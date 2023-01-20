@@ -16,9 +16,9 @@ const Review = ({review, onDeleteReview}) => {
       // setReload("")
     }
 
-  const handleUpdate = () => {
-    //todo
-  }
+  // const handleUpdate = () => {
+  //   //todo
+  // }
 
   // let review_comment = ""
 
@@ -42,7 +42,7 @@ const Review = ({review, onDeleteReview}) => {
 
           <div>
           <DeleteOutlineOutlinedIcon onClick={handleDeleteClick} />
-          <ModeEditIcon onClick={handleUpdate}/>
+          {/* <ModeEditIcon onClick={handleUpdate}/> */}
        </div>
       <hr />
 

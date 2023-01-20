@@ -25,6 +25,20 @@ class ApplicationController < Sinatra::Base
     review.to_json
   end
 
+  get '/services' do
+    services = Service.all
+    services.to_json
+  end
+
+  patch '/services/:id' do
+    review = Review.find(params[:id])
+    review.update(
+      score: params[:score],
+      comment: params[:comment]
+    )
+    review.to_json
+  end
+
   get '/reviews' do
     workspaces = Review.all
     workspaces.to_json

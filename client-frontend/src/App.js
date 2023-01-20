@@ -10,8 +10,7 @@ function App() {
   const [workspaces, setWorkspaces] = useState([
   ])
   const [allReviews, setAllReviews] = useState([])
-  // const [reload, setReload] = useState("")
-
+ 
     useEffect(() => {
       fetch("http://localhost:9292/workspaces")
       .then(r => r.json())
@@ -24,18 +23,23 @@ function App() {
       .then((data => setAllReviews(data)))
     }, [])
 
-//the ADD and DELETE functions below do not locate the nested data in workspaces > reviews.
-//perhaps create separate GET request to deal with all this review CRUD?
-
+ 
   const handleAddReview = (newReview) => {
-    setAllReviews([...allReviews, newReview])
-    // setReload("!")
+    const addNewReview = [...allReviews, newReview]
+    console.log(addNewReview)
+    setAllReviews(addNewReview)
+    // getData(workspaces)
   }
 
   const handleDeleteReview = (id) => {
-    setAllReviews(review => 
-      review.filter(r => r.id !== id))
+    const updatedReviews = allReviews.filter(r => 
+      r.id !== id)
+    setAllReviews(updatedReviews)
       // setReload("")
+  }
+
+  const onUpdatedService = () => {
+    
   }
   
   return (
