@@ -9,12 +9,10 @@ import WorkspaceGrid from './WorkspaceGrid'
 
 import Button from '@mui/material/Button';
 
-const Workspaces = ({onDeleteReview, onAddReview, onUpdatedService, allReviews, allServices}) => {
+const Workspaces = () => {
 
   const [workspaces, setWorkspaces] = useState([
   ])
-  const [workspacesFormFlag, setWorkspacesFormFlag] = useState(false)
-
   const [search, setSearch] = useState("")
   const [showFilter, setShowFilter] = useState(false)
 
@@ -30,15 +28,15 @@ const Workspaces = ({onDeleteReview, onAddReview, onUpdatedService, allReviews, 
 
   const filterBySearch = workspaces.filter(c => c.title.toLowerCase().includes(search.toLowerCase()))
 
-  const workspaceCard = workspaces.map((w) => 
+  const workspaceCard = filterBySearch.map((w) => 
     <WorkspaceCard 
       key={w.id}
       workspace={w}
-      allReviews={allReviews}
-      allServices={allServices}
-      onDeleteReview={onDeleteReview}
-      onAddReview={onAddReview}
-      onUpdatedService={onUpdatedService}
+      // allReviews={allReviews}
+      // allServices={allServices}
+      // onDeleteReview={onDeleteReview}
+      // onAddReview={onAddReview}
+      // onUpdatedService={onUpdatedService}
       />)
 
     const handleSearchChange = (e) => {
@@ -55,13 +53,13 @@ const Workspaces = ({onDeleteReview, onAddReview, onUpdatedService, allReviews, 
 
   return (
 
-
     <div >
+
         <div>
           <ul>
             {workspacesList}
           </ul>
-        </div>
+          </div>
 
 
 

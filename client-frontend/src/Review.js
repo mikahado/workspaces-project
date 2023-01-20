@@ -8,6 +8,7 @@ const Review = ({review, onDeleteReview}) => {
 
   // const {id, rating, comment, workspace_id, updated_at} = review
 
+
   const handleDeleteClick = () => {
     fetch(`http://localhost:9292/reviews/${review.id}`, {
       method: "DELETE",
@@ -32,7 +33,8 @@ const Review = ({review, onDeleteReview}) => {
 
     <div>
         <div>
-        <em> {review.updated_at.slice(0, 10)}</em>
+          <hr />
+          <em> {review.updated_at.slice(0, 10)}</em>
           </div>
 
               {/* {review_comment} */}

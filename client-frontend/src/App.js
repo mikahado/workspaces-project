@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Home';
 import Workspace from './Workspace'
 import Workspaces from './Workspaces'
+import Review from './Review'
 import Navigation from './Navigation'
 import './App.css';
 
@@ -10,8 +11,8 @@ function App() {
 
   // const [workspaces, setWorkspaces] = useState([
   // ])
-  const [allReviews, setAllReviews] = useState([])
-  const [allServices, setAllServices] = useState([])
+  // const [allReviews, setAllReviews] = useState([])
+  // const [allServices, setAllServices] = useState([])
  
   //   useEffect(() => {
   //     fetch("http://localhost:9292/workspaces")
@@ -32,28 +33,28 @@ function App() {
     // }, [])
 
  
-  const handleAddReview = (newReview) => {
-    const addNewReview = [...allReviews, newReview]
-    console.log(addNewReview)
-    setAllReviews(addNewReview)
-  }
+  // const handleAddReview = (newReview) => {
+  //   const addNewReview = [...allReviews, newReview]
+  //   console.log(addNewReview)
+  //   setAllReviews(addNewReview)
+  // }
 
-  const handleDeleteReview = (id) => {
-    const updatedReviews = allReviews.filter(r => 
-      r.id !== id)
-    setAllReviews(updatedReviews)
-  }
+  // const handleDeleteReview = (id) => {
+  //   const updatedReviews = allReviews.filter(r => 
+  //     r.id !== id)
+  //   setAllReviews(updatedReviews)
+  // }
 
-  const handleUpdatedWifi = (updatedObj) => {
-    const updatedWifi = allServices.map(s => {
-      if (s.id === updatedObj.id) {
-        return updatedObj;
-      } else {
-        return s;
-      }
-    });
-    setAllServices(updatedWifi);
-  }
+  // const handleUpdatedWifi = (updatedObj) => {
+  //   const updatedWifi = allServices.map(s => {
+  //     if (s.id === updatedObj.id) {
+  //       return updatedObj;
+  //     } else {
+  //       return s;
+  //     }
+  //   });
+  //   setAllServices(updatedWifi);
+  // }
   
   return (
     
@@ -67,11 +68,13 @@ function App() {
           <Route exact path="/workspaces" element={
               <Workspaces 
                           // workspaces={workspaces}
-                          allReviews={allReviews} 
-                          allServices={allServices}
-                          onDeleteReview={handleDeleteReview}
-                          onAddReview={handleAddReview} 
-                          onUpdatedService={handleUpdatedWifi}/>} /> 
+                          // allReviews={allReviews} 
+                          // allServices={allServices}
+                          // onDeleteReview={handleDeleteReview}
+                          // onAddReview={handleAddReview} 
+                          // onUpdatedService={handleUpdatedWifi}
+                          />} 
+                          /> 
           <Route path="/workspaces/:id" element={<Workspace />} />
         </Routes>
       </div>

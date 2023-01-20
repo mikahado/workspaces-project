@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Link}  from 'react-router-dom'
 import ReviewAdd from './ReviewAdd'
 import Review from './Review'
 
@@ -10,18 +11,20 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-const WorkspaceDialog = ({reviews, allRatings, onAddReview, onDeleteReview, allReviews}) => {
+const WorkspaceDialog = ({id, reviews, allRatings, onAddReview, onDeleteReview, allReviews}) => {
 
     const [showReview, setShowReview] = useState(false)
 
     const [open, setOpen] = useState(false);
     const [scroll, setScroll] = useState('paper');
+    
 
      const review = reviews.map(r => 
         <Review 
             key={r.id}
             review={r}
             onDeleteReview={onDeleteReview}
+            
             />
         )
 
@@ -52,7 +55,11 @@ const WorkspaceDialog = ({reviews, allRatings, onAddReview, onDeleteReview, allR
   return (
     <div>
 
-        <Button onClick={handleClickOpen('paper')}>{allRatings.length} reviews</Button>
+        <Link to={`/workspaces/${id}`}>
+          <Button onClick={handleClickOpen('paper')}>{allRatings.length} reviews</Button>
+        </Link>
+
+        
         <Dialog
             open={open}
             onClose={handleClose}
@@ -89,6 +96,7 @@ const WorkspaceDialog = ({reviews, allRatings, onAddReview, onDeleteReview, allR
                 </DialogActions>
         </Dialog>
 
+        {/* <Link to={`/workspaces/${workspace.id}`} /> */}
 
     </div>
 

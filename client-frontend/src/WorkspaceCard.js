@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import {Link} from 'react-router-dom'
 import Service from './Service'
+import Review from './Review'
 import WorkspaceDialog from './WorkspaceDialog'
 import Rating from '@mui/material/Rating';
+import Button from '@mui/material/Button'
 
-const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService, allReviews, allServices}) => {
+const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService, allReviews}) => {
 
     const {id, title, address, reviews, services} = workspace
- 
+  
     const [hasWifi, setHasWifi] = useState(false)
    
     const handleUpdateWifi = () => {
@@ -34,6 +37,15 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService
           />
         )
 
+    const review = reviews.map(r => 
+      <Review 
+          key={r.id}
+          review={r}
+          onDeleteReview={onDeleteReview}
+          
+          />
+      )
+
     const allRatings = reviews.map(r => r.rating) 
     const ratingsAvg = allRatings.reduce((a,b) => a + b) / allRatings.length 
 
@@ -44,16 +56,24 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService
         <p>[photo of workspace]</p>
         {address}
         {service}
+        
         <Rating name="read-only" value={Math.ceil(ratingsAvg)} readOnly />
+          <br />
 
-        <WorkspaceDialog 
+
+        <Link to={`/workspaces/${workspace.id}`}>
+          <Button >{allRatings.length} reviews</Button>
+        </Link>
+
+        {/* <WorkspaceDialog 
+          key={workspace.id}
+          id={workspace.id}
           reviews={reviews} 
           onAddReview={onAddReview} 
           onDeleteReview={onDeleteReview}
           allReviews={allReviews} 
           allRatings={allRatings}
-       
-        />
+        /> */}
         
     </div>
   )
