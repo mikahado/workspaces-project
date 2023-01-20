@@ -42,8 +42,6 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService
     const allRatings = reviews.map(r => r.rating) 
     const ratingsAvg = allRatings.reduce((a,b) => a + b) / allRatings.length 
 
-   
-
   return (
     <div>
 
