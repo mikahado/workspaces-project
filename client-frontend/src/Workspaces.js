@@ -1,19 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import WorkspaceLink from './WorkspaceLink'
+
 import WorkspaceCard from './WorkspaceCard'
 import Filter from './Filter'
 import Search from './Search'
 import WorkspaceGrid from './WorkspaceGrid'
 
+
 import Button from '@mui/material/Button';
 
-const Workspaces = ({workspaces, onDeleteReview, onAddReview, onUpdatedService, allReviews, allServices}) => {
+const Workspaces = ({onDeleteReview, onAddReview, onUpdatedService, allReviews, allServices}) => {
+
+  const [workspaces, setWorkspaces] = useState([
+  ])
+  const [workspacesFormFlag, setWorkspacesFormFlag] = useState(false)
 
   const [search, setSearch] = useState("")
   const [showFilter, setShowFilter] = useState(false)
 
+  useEffect(() => {
+    fetch("http://localhost:9292/workspaces")
+    .then(r => r.json())
+    .then((data => setWorkspaces(data)))
+  }, [])
+
+  const workspacesList = workspaces.map(w => <WorkspaceLink key={w.id} workspace={w} />)
+
+  //pre-Noyes
+
   const filterBySearch = workspaces.filter(c => c.title.toLowerCase().includes(search.toLowerCase()))
 
-  const workspaceCard = filterBySearch.map((w) => 
+  const workspaceCard = workspaces.map((w) => 
     <WorkspaceCard 
       key={w.id}
       workspace={w}
@@ -22,8 +39,7 @@ const Workspaces = ({workspaces, onDeleteReview, onAddReview, onUpdatedService, 
       onDeleteReview={onDeleteReview}
       onAddReview={onAddReview}
       onUpdatedService={onUpdatedService}
-      /> 
-    )
+      />)
 
     const handleSearchChange = (e) => {
       setSearch(e.target.value)
@@ -39,7 +55,22 @@ const Workspaces = ({workspaces, onDeleteReview, onAddReview, onUpdatedService, 
 
   return (
 
+
     <div >
+        <div>
+          <ul>
+            {workspacesList}
+          </ul>
+        </div>
+
+
+
+<hr />
+<br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br />
+
+
+
         <h1 > WORKSPACES</h1>
         
         <Search handleSearchChange={handleSearchChange} />

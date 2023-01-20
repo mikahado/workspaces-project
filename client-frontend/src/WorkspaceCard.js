@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import Service from './Service'
 import WorkspaceDialog from './WorkspaceDialog'
-
 import Rating from '@mui/material/Rating';
 
-
-
 const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService, allReviews, allServices}) => {
-    
-    
 
     const {id, title, address, reviews, services} = workspace
-
+ 
     const [hasWifi, setHasWifi] = useState(false)
    
     const handleUpdateWifi = () => {

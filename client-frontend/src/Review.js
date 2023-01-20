@@ -6,13 +6,13 @@ const Review = ({review, onDeleteReview}) => {
 
   // const [reload, setReload] = useState("")
 
-  const {id, rating, comment, workspace_id, updated_at} = review
+  // const {id, rating, comment, workspace_id, updated_at} = review
 
   const handleDeleteClick = () => {
-    fetch(`http://localhost:9292/reviews/${id}`, {
+    fetch(`http://localhost:9292/reviews/${review.id}`, {
       method: "DELETE",
     })
-      .then(() => onDeleteReview(id))
+      .then(() => onDeleteReview(review.id))
       // setReload("")
     }
 
@@ -32,12 +32,12 @@ const Review = ({review, onDeleteReview}) => {
 
     <div>
         <div>
-        <em> {updated_at.slice(0, 10)}</em>
+        <em> {review.updated_at.slice(0, 10)}</em>
           </div>
 
               {/* {review_comment} */}
               <p>
-              User_{Math.floor(Math.random() * 100)}: {comment}
+              User_{Math.floor(Math.random() * 100)}: {review.comment}
               </p>
 
           <div>
