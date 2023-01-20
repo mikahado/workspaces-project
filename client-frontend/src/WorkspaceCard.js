@@ -6,7 +6,7 @@ import Rating from '@mui/material/Rating';
 
 
 
-const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService}) => {
+const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService, allReviews, allServices}) => {
     
     
 
@@ -24,21 +24,18 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          has_wifi: services.has_wifi,
+          has_wifi: hasWifi,
         }),
       })
         .then(r => r.json())
-        .then((updatedService) => onUpdatedService(updatedService))
+        .then((newData) => onUpdatedService(newData))
       }
-
-      console.log(hasWifi)
-    
-
+   
     const service = services.map(s => 
       <Service 
           key={s.id}
           service={s}
-          handleUpdateWifi={handleUpdateWifi}
+          updateWifiClick={handleUpdateWifi}
           />
         )
 
@@ -59,7 +56,8 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService
         <WorkspaceDialog 
           reviews={reviews} 
           onAddReview={onAddReview} 
-          onDeleteReview={onDeleteReview} 
+          onDeleteReview={onDeleteReview}
+          allReviews={allReviews} 
           allRatings={allRatings}
        
         />

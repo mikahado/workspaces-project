@@ -30,6 +30,11 @@ class ApplicationController < Sinatra::Base
     services.to_json
   end
 
+  get '/services/:id' do
+    workspace = Service.find(params[:id])
+    workspace.to_json(include: [:services, :reviews])
+  end
+
   patch '/services/:id' do
     review = Review.find(params[:id])
     review.update(

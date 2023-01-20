@@ -10,7 +10,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-const WorkspaceDialog = ({reviews, allRatings, onAddReview, onDeleteReview}) => {
+const WorkspaceDialog = ({reviews, allRatings, onAddReview, onDeleteReview, allReviews}) => {
 
     const [showReview, setShowReview] = useState(false)
 
