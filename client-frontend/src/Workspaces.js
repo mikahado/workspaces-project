@@ -39,6 +39,9 @@ const Workspaces = () => {
       // onUpdatedService={onUpdatedService}
       />)
 
+
+   
+
     const handleSearchChange = (e) => {
       setSearch(e.target.value)
     }
@@ -54,20 +57,6 @@ const Workspaces = () => {
   return (
 
     <div >
-
-        <div>
-          <ul>
-            {workspacesList}
-          </ul>
-          </div>
-
-
-
-<hr />
-<br /><br /><br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br /><br /><br />
-
-
 
         <h1 > WORKSPACES</h1>
         

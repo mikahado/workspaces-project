@@ -1,14 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import { json, useParams } from 'react-router-dom'
 import Review from './Review'
+import ReviewAdd from './ReviewAdd'
+import Button from '@mui/material/Button';
 
 const Workspace = () => {
 
     const [workspace, setWorkspace] = useState({
         reviews: []
     })
-
-    const [reviewFormFlag, setReviewFormFlag] = useState(false)
+    const [showReview, setShowReview] = useState(false)
 
     const params = useParams()
 
@@ -21,34 +22,49 @@ const Workspace = () => {
         })
     }, [])
 
-    const addReview = (review) => {
-        fetch(`http://localhost:9292/reviews`, {
-            method: "POST",
-            header: {
-
-            },
-            body: JSON.stringify({
-                rating: review.rating,
-                comment: review.comment,
-                workspace_id: params.id
-            })
-        })
+    const handleDeleteReview = (id) => {
+    fetch(`http://localhost:9292/reviews/${id}`, {
+      method: "DELETE",
+    })
+      .then(() => onReviewDelete(id))
     }
 
-    const reviews = workspace.reviews.map(w => 
-        <Review key={w.id} review={w} /> 
-        )
+    const onReviewDelete = (id) => {
+        const updatedReviews = workspace.reviews.filter((w) => w.id !== id);
+        setWorkspace(updatedReviews);
+        }
 
+     const handleAddReview = (newReview) => {
+        const addNewReview = [...workspace.reviews, newReview]
+        setWorkspace(addNewReview)
+  }
+
+    const reviewItems = workspace.reviews.map(w => 
+        <Review key={w.id} review={w} onDeleteReview={handleDeleteReview}/> 
+        )
+    
+    const handleShowReviewClick = ({onAddReview}) => {
+        setShowReview(!showReview)
+      }
 
   return (
 
     <div>
 
+        <h1>REVIEWS</h1>
+        <p>for</p>
         <h2>{workspace.title}</h2>
-        <p>[photo of workspace]</p>
         {workspace.address}
+        <br />
+        <br />
+        <br />
+        <Button variant="outlined" onClick={handleShowReviewClick}>Write a Review</Button>
+              <br />
 
-        {reviews}
+        {showReview ? <ReviewAdd onAddReview={handleAddReview} reviews={workspace.reviews} /> : null}
+        <br />
+        < hr />
+        {reviewItems}
 
     </div>
   )

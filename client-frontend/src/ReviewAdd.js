@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const ReviewAdd = ({onAddReview, reviews, handleClose}) => {
+const ReviewAdd = ({onAddReview, reviews}) => {
 
   const workspace_id = reviews.map(r => r.workspace_id)[0]
   
@@ -19,7 +19,7 @@ const ReviewAdd = ({onAddReview, reviews, handleClose}) => {
       workspace_id: review.workspace_id
     }
 
-    fetch('http://localhost:9292/workspaces', {
+    fetch('http://localhost:9292/reviews', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +31,6 @@ const ReviewAdd = ({onAddReview, reviews, handleClose}) => {
         onAddReview(newData);
       });
 
-      handleClose()
   }
 
   const handleChangeReview = (e) => {

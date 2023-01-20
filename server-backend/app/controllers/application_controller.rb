@@ -13,6 +13,7 @@ class ApplicationController < Sinatra::Base
     workspace.to_json(include: [:services, :reviews])
   end
 
+  
   # post '/workspaces' do
   #   review = Review.create(
   #       rating: params[:rating], 
