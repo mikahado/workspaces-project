@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { json, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Review from './Review'
 import ReviewAdd from './ReviewAdd'
 import Button from '@mui/material/Button';

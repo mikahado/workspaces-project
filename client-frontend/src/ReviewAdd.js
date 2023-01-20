@@ -28,6 +28,7 @@ const ReviewAdd = ({onAddReview, reviews}) => {
     })
       .then((r) => r.json())
       .then((newData) => {
+
         onAddReview(newData);
       });
 

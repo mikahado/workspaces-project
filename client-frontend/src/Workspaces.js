@@ -9,20 +9,21 @@ import WorkspaceGrid from './WorkspaceGrid'
 
 import Button from '@mui/material/Button';
 
-const Workspaces = () => {
+const Workspaces = ({workspaces}) => {
 
-  const [workspaces, setWorkspaces] = useState([
-  ])
+  // const [workspaces, setWorkspaces] = useState([
+  // ])
   const [search, setSearch] = useState("")
   const [showFilter, setShowFilter] = useState(false)
 
-  useEffect(() => {
-    fetch("http://localhost:9292/workspaces")
-    .then(r => r.json())
-    .then((data => setWorkspaces(data)))
-  }, [])
+  // useEffect(() => {
+  //   fetch("http://localhost:9292/workspaces")
+  //   .then(r => r.json())
+  //   .then((data => setWorkspaces(data)))
+  // }, [])
 
   const workspacesList = workspaces.map(w => <WorkspaceLink key={w.id} workspace={w} />)
+
 
   //pre-Noyes
 

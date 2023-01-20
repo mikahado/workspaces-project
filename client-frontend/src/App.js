@@ -9,6 +9,15 @@ import './App.css';
 
 function App() {
 
+  const [workspaces, setWorkspaces] = useState([
+  ])
+
+  useEffect(() => {
+    fetch("http://localhost:9292/workspaces")
+    .then(r => r.json())
+    .then((data => setWorkspaces(data)))
+  }, [])
+
   // const [workspaces, setWorkspaces] = useState([
   // ])
   // const [allReviews, setAllReviews] = useState([])
@@ -67,7 +76,7 @@ function App() {
           <Route exact path="/" element={<Home />} /> 
           <Route exact path="/workspaces" element={
               <Workspaces 
-                          // workspaces={workspaces}
+                          workspaces={workspaces}
                           // allReviews={allReviews} 
                           // allServices={allServices}
                           // onDeleteReview={handleDeleteReview}
@@ -75,7 +84,7 @@ function App() {
                           // onUpdatedService={handleUpdatedWifi}
                           />} 
                           /> 
-          <Route path="/workspaces/:id" element={<Workspace />} />
+          <Route path="/workspaces/:id" element={<Workspace setWorkspaces={setWorkspaces}/>} />
         </Routes>
       </div>
      
