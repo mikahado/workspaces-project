@@ -1,4 +1,6 @@
 sudo lsof -i :9292
+kill (and whatever the PID# for ruby is)
+restart server
 
 npm config set legacy-peer-deps true npm i
 

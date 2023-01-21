@@ -18,6 +18,11 @@ function App() {
     .then((data => setWorkspaces(data)))
   }, [])
 
+  const handleAddReview = (newWorkspace) => {
+    // change state HERERERERERE!
+    setWorkspaces([...workspaces, newWorkspace])
+  }
+
   // const [workspaces, setWorkspaces] = useState([
   // ])
   // const [allReviews, setAllReviews] = useState([])
@@ -84,7 +89,7 @@ function App() {
                           // onUpdatedService={handleUpdatedWifi}
                           />} 
                           /> 
-          <Route path="/workspaces/:id" element={<Workspace setWorkspaces={setWorkspaces}/>} />
+          <Route path="/workspaces/:id" element={<Workspace setWorkspaces={setWorkspaces} onAddReview={handleAddReview}/>} />
         </Routes>
       </div>
      
