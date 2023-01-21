@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 const ReviewAdd = ({onAddReview, reviews}) => {
 
+  console.log(reviews.workspace_id)
+
   const workspace_id = reviews.map(r => r.workspace_id)[0]
   
   const [review, setReview] = useState({

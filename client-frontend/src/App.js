@@ -9,19 +9,23 @@ import './App.css';
 
 function App() {
 
-  const [workspaces, setWorkspaces] = useState([
-  ])
+  // const [workspaces, setWorkspaces] = useState([])
 
-  useEffect(() => {
-    fetch("http://localhost:9292/workspaces")
-    .then(r => r.json())
-    .then((data => setWorkspaces(data)))
-  }, [])
+  //  useEffect(() => {
+  //   fetch("http://localhost:9292/workspaces")
+  //   .then(r => r.json())
+  //   .then(data => {
+  //       console.log(data)
+  //       setWorkspaces(data)
+  //     })
+  // }, [])
 
-  const handleAddReview = (newWorkspace) => {
-    // change state HERERERERERE!
-    setWorkspaces([...workspaces, newWorkspace])
-  }
+  // const handleAddReview = (newWorkspace) => {
+  //   // change state HERERERERERE!
+  //   setWorkspaces([...workspaces, newWorkspace])
+  //   // setReload("")
+  // }
+
 
   // const [workspaces, setWorkspaces] = useState([
   // ])
@@ -81,15 +85,19 @@ function App() {
           <Route exact path="/" element={<Home />} /> 
           <Route exact path="/workspaces" element={
               <Workspaces 
-                          workspaces={workspaces}
-                          // allReviews={allReviews} 
-                          // allServices={allServices}
-                          // onDeleteReview={handleDeleteReview}
-                          // onAddReview={handleAddReview} 
-                          // onUpdatedService={handleUpdatedWifi}
-                          />} 
-                          /> 
-          <Route path="/workspaces/:id" element={<Workspace setWorkspaces={setWorkspaces} onAddReview={handleAddReview}/>} />
+                  // workspaces={workspaces}
+                  // allReviews={allReviews} 
+                  // allServices={allServices}
+                  // onDeleteReview={handleDeleteReview}
+                  // onAddReview={handleAddReview} 
+                  // onUpdatedService={handleUpdatedWifi}
+                  />} 
+                  /> 
+          <Route path="/workspaces/:id" element={
+              <Workspace 
+                  // onAddReview={handleAddReview}
+                  />} 
+                  />
         </Routes>
       </div>
      

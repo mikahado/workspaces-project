@@ -4,11 +4,13 @@ import Review from './Review'
 import ReviewAdd from './ReviewAdd'
 import Button from '@mui/material/Button';
 
-const Workspace = ({setWorkspaces, onAddReview}) => {
+const Workspace = () => {
 
     const [workspace, setWorkspace] = useState({
         reviews: []
     })
+
+       //it is ALL ABOUT THE ID
   
     const [showReview, setShowReview] = useState(false)
 
@@ -30,16 +32,16 @@ const Workspace = ({setWorkspaces, onAddReview}) => {
     }
 
     const onReviewDelete = (id) => {
-        const updatedReviews = workspace.filter((w) => w.id !== id);    
+        const updatedReviews = workspace.reviews.filter((w) => w.id !== id);    
         //below line should be passed to parent, or update state in this component 
-        onReviewDelete(updatedReviews);
+        setWorkspace(updatedReviews);
         }
 
-    //  const handleAddReview = (newReview) => {
-    //     const addNewReview = [...workspace, newReview]
-    //     //below line should be passed to parent, or update state in this component 
-    //     onAddReview(addNewReview)
-    //     }
+     const handleAddReview = (newReview) => {
+        const addNewReview = [...workspace.reviews, newReview]
+        console.log(addNewReview)
+        setWorkspace(addNewReview)
+        }
 
     const reviewItems = workspace.reviews.map(w => 
         <Review key={w.id} review={w} onDeleteReview={handleDeleteReview}/> )
@@ -63,7 +65,7 @@ const Workspace = ({setWorkspaces, onAddReview}) => {
         <Button variant="outlined" onClick={handleShowReviewClick}>Write a Review</Button>
               <br />
 
-        {showReview ? <ReviewAdd onAddReview={onAddReview} reviews={workspace.reviews} /> : null}
+        {showReview ? <ReviewAdd onAddReview={handleAddReview} reviews={workspace.reviews} /> : null}
         <br />
         < hr />
         {reviewItems}

@@ -3,6 +3,8 @@ class ApplicationController < Sinatra::Base
   
   # workspace routes
 
+  # FOUR MAIN ROUTES
+
   get '/workspaces' do
     workspaces = Workspace.all
     workspaces.to_json(include: [:services, :reviews])
@@ -12,6 +14,27 @@ class ApplicationController < Sinatra::Base
     workspace = Workspace.find_by(id: params[:id])
     workspace.to_json(include: [:services, :reviews])
   end
+
+  post '/reviews' do
+    review = Review.create(params)
+    review.to_json
+  end
+
+  delete '/reviews/:id' do
+    review = Review.find_by(id: params[:id])
+    review.destroy
+    review.to_json
+  end
+
+
+
+  get '/reviews' do
+    reviews = Review.all
+    reviews.to_json
+  end
+
+  
+
 
   
   # post '/workspaces' do
@@ -45,22 +68,7 @@ class ApplicationController < Sinatra::Base
 
   # # reviews routes
 
-  get '/reviews' do
-    reviews = Review.all
-    reviews.to_json
-  end
-
-  post '/reviews' do
-    review = Review.create(params)
-    review.to_json
-  end
-
-  delete '/reviews/:id' do
-    review = Review.find_by(id: params[:id])
-    review.destroy
-    review.to_json
-  end
-
+  
   # post '/reviews' do
   #   review = Review.create(
   #       rating: params[:rating], 

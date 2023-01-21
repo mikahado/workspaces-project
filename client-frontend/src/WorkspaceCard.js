@@ -60,19 +60,17 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService
         <Rating name="read-only" value={Math.ceil(ratingsAvg)} readOnly />
           <br />
 
-
         <Link to={`/workspaces/${workspace.id}`}>
           <Button >{allRatings.length} reviews</Button>
         </Link>
-
-        {/* <WorkspaceDialog 
-          key={workspace.id}
-          id={workspace.id}
+{/* 
+        <WorkspaceDialog 
+          key={id}
           reviews={reviews} 
-          onAddReview={onAddReview} 
-          onDeleteReview={onDeleteReview}
-          allReviews={allReviews} 
-          allRatings={allRatings}
+          // onAddReview={onAddReview} 
+          // onDeleteReview={onDeleteReview}
+          // allReviews={allReviews} 
+          // allRatings={allRatings}
         /> */}
         
     </div>

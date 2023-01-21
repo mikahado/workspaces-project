@@ -11,25 +11,12 @@ const Review = ({review, onDeleteReview}) => {
       onDeleteReview(id)
     }
 
-  // const handleUpdate = () => {
-  //   //todo
-  // }
-
-  // let review_comment = ""
-
-  // useEffect (() => {
-
-  //   }, [reload] )
-
-  // review_comment = `User${Math.floor(Math.random() * 100)}: ${comment}` 
-
   return (
 
     <div>
 
           <hr />
 
-              {/* {review_comment} */}
               <p>
               <b>User_{Math.floor(Math.random() * 100)}</b> <em>({updated_at.slice(0, 10)})</em>: 
               </p>
@@ -37,7 +24,7 @@ const Review = ({review, onDeleteReview}) => {
 
             <div>
             <DeleteOutlineOutlinedIcon onClick={handleDeleteClick} />
-            {/* <ModeEditIcon onClick={handleUpdate}/> */}
+            <ModeEditIcon />
        </div>
       <hr />
 

@@ -6,26 +6,27 @@ import Filter from './Filter'
 import Search from './Search'
 import WorkspaceGrid from './WorkspaceGrid'
 
-
 import Button from '@mui/material/Button';
 
-const Workspaces = ({workspaces}) => {
+const Workspaces = () => {
 
-  // const [workspaces, setWorkspaces] = useState([
-  // ])
+  const [workspaces, setWorkspaces] = useState([
+  ])
+
   const [search, setSearch] = useState("")
   const [showFilter, setShowFilter] = useState(false)
 
-  // useEffect(() => {
-  //   fetch("http://localhost:9292/workspaces")
-  //   .then(r => r.json())
-  //   .then((data => setWorkspaces(data)))
-  // }, [])
+  useEffect(() => {
+    fetch("http://localhost:9292/workspaces")
+    .then(r => r.json())
+    .then((data => {
+      console.log(data)
+      setWorkspaces(data)
+    }
+      ))
+  }, [])
 
-  const workspacesList = workspaces.map(w => <WorkspaceLink key={w.id} workspace={w} />)
-
-
-  //pre-Noyes
+   //pre-Noyes
 
   const filterBySearch = workspaces.filter(c => c.title.toLowerCase().includes(search.toLowerCase()))
 
@@ -63,7 +64,7 @@ const Workspaces = ({workspaces}) => {
         
         <Search handleSearchChange={handleSearchChange} />
     
-        <Button onClick={handleFilterClick} variant="contained">{showFilter ? "Hide": "Filter"}</Button>
+        <Button  onClick={handleFilterClick} variant="contained">{showFilter ? "Hide": "Filter"}</Button>
         {showFilter ? <Filter /> : null}
 
         <WorkspaceGrid workspaceCard={workspaceCard}/>
