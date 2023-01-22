@@ -4,9 +4,9 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-const ReviewAdd = ({onAddReview, reviews}) => {
+const ReviewAdd = ({onAddReview, reviews, workspace_id}) => {
 
-  const workspace_id = reviews.map(r => r.workspace_id)[0]
+  // const workspace_id = reviews.map(r => r.workspace_id)[0]
   
   const [review, setReview] = useState({
     rating: 3,

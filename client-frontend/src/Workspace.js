@@ -30,6 +30,9 @@ const Workspace = () => {
       .then(() => onReviewDelete(id))
     }
 
+
+    //handleEditREview is currently mapping the ENTIRE array! just need that one review. 
+
     const handleEditReview = (editedReview) => {
       const updatedReviews = workspace.reviews.map(r => {
         if (r.id === editedReview.id) {
@@ -77,7 +80,7 @@ const Workspace = () => {
         <Button variant="outlined" onClick={handleShowReviewClick}>Write a Review</Button>
               <br />
 
-        {showReview ? <ReviewAdd key={workspace.id} onAddReview={handleAddReview} reviews={workspace.reviews} /> : null}
+        {showReview ? <ReviewAdd key={workspace.id} onAddReview={handleAddReview} reviews={workspace.reviews} workspace_id={workspace.id} /> : null}
         <br />
         < hr />
         {reviewItems}

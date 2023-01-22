@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-const ReviewEdit = ({onEditReview}) => {
+const ReviewEdit = ({onEditReview, workspace_id}) => {
 
   const [editedBody, setEditedBody] = useState("")
 
@@ -20,6 +20,7 @@ const ReviewEdit = ({onEditReview}) => {
         },
         body: JSON.stringify({
           comment: editedBody,
+          workspace_id: workspace_id
         }),
       })
         .then((r) => r.json())
