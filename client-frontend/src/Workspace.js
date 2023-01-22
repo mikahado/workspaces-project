@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-import Review from './Review'
+import ReviewItem from './ReviewItem'
 import ReviewAdd from './ReviewAdd'
 import Button from '@mui/material/Button';
 
@@ -12,9 +12,6 @@ const Workspace = () => {
     })
 
     const [showReview, setShowReview] = useState(false)
-
-    const [editedBody, setEditedBody] = useState("")
-
 
     const params = useParams()
 
@@ -34,14 +31,14 @@ const Workspace = () => {
     }
 
     const handleEditReview = (editedReview) => {
-      const updatedReview = workspace.reviews.map(r => {
+      const updatedReviews = workspace.reviews.map(r => {
         if (r.id === editedReview.id) {
-          return updatedReview;
+          return editedReview;
         } else {
-          return workspace;
+          return r;
         }
       });
-      setWorkspace({...workspace, reviews: [...workspace.reviews, updatedReview]});
+      setWorkspace({...workspace, reviews: updatedReviews});
     }
       
 
@@ -55,7 +52,11 @@ const Workspace = () => {
     }
 
     const reviewItems = workspace.reviews.map(w => 
-        <Review key={w.id} review={w} onDeleteReview={handleDeleteReview} onEditReview={handleEditReview} /> )
+      <ReviewItem 
+          key={w.id} 
+          review={w} 
+          onDeleteReview={handleDeleteReview} 
+          onEditReview={handleEditReview} /> )
 
     const handleShowReviewClick = () => {
         setShowReview(!showReview)
@@ -76,7 +77,7 @@ const Workspace = () => {
         <Button variant="outlined" onClick={handleShowReviewClick}>Write a Review</Button>
               <br />
 
-        {showReview ? <ReviewAdd onAddReview={handleAddReview} reviews={workspace.reviews} /> : null}
+        {showReview ? <ReviewAdd key={workspace.id} onAddReview={handleAddReview} reviews={workspace.reviews} /> : null}
         <br />
         < hr />
         {reviewItems}

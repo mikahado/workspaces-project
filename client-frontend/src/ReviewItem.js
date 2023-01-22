@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
@@ -8,13 +8,11 @@ const ReviewItem = ({review, onDeleteReview, onEditReview}) => {
 
   const [showEditor, setShowEditor] = useState(false)
 
-  const {id, rating, comment, updated_at} = review
+  const {id, rating, comment, updated_at} = review 
 
   const handleEditClick = () => {
     setShowEditor(!showEditor)
   }
-
-
 
   const handleDeleteClick = () => {
       onDeleteReview(id)
@@ -25,7 +23,7 @@ const ReviewItem = ({review, onDeleteReview, onEditReview}) => {
     <div>
           <hr />
               <p>
-              <b>User_{Math.floor(Math.random() * 100)}</b> <em>({updated_at.slice(0, 10)})</em>: 
+              <b>User_{Math.floor(Math.random() * 100)}</b> : 
               </p>
               {comment}
               <br /><br />
@@ -38,11 +36,10 @@ const ReviewItem = ({review, onDeleteReview, onEditReview}) => {
 
             {showEditor ? 
 
-              <ReviewEdit onEditReview={onEditReview}/>
-
+              <ReviewEdit key={review.id} onEditReview={onEditReview}/>
                   : null 
             }
-       
+    
 
        </div>
       <hr />

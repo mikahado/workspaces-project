@@ -13,19 +13,18 @@ const ReviewEdit = ({onEditReview}) => {
   const handleEditSubmit = (e) => {
     e.preventDefault()
     
-    fetch(`http://localhost:9292/services/${params.id}`, {
+    fetch(`http://localhost:9292/reviews/${params.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          body: editedBody,
+          comment: editedBody,
         }),
       })
         .then((r) => r.json())
         .then((updatedData) => onEditReview(updatedData));
     }
-
 
   return (
     <div>

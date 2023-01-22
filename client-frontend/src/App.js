@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Home';
 import Workspace from './Workspace'
 import Workspaces from './Workspaces'
-import Review from './Review'
+import Review from './ReviewItem'
 import Navigation from './Navigation'
 import './App.css';
 

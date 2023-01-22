@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import Service from './Service'
-import Review from './Review'
+import Review from './ReviewItem'
 import WorkspaceDialog from './WorkspaceDialog'
 import Rating from '@mui/material/Rating';
 import Button from '@mui/material/Button'

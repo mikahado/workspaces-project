@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Link}  from 'react-router-dom'
 import ReviewAdd from './ReviewAdd'
-import Review from './Review'
+import Review from './ReviewItem'
 
 //dialog
 import Button from '@mui/material/Button';

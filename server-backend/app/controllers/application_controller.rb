@@ -26,19 +26,27 @@ class ApplicationController < Sinatra::Base
     review.to_json
   end
 
+  patch '/reviews/:id' do
+    review = Review.find_by(id: params[:id])
+    review.update(
+      comment: params[:comment]
+    )
+    review.to_json
+  end
+
 
   get '/reviews' do
     reviews = Review.all
     reviews.to_json
   end
 
-  patch '/services/:id' do
-    service = Service.find_by(id: params[:id])
-    service.update(
-      has_wifi: params[:has_wifi]
-    )
-    service.to_json
-  end
+  # patch '/services/:id' do
+  #   service = Service.find_by(id: params[:id])
+  #   service.update(
+  #     has_wifi: params[:has_wifi]
+  #   )
+  #   service.to_json
+  # end
 
   
   # post '/workspaces' do
@@ -62,13 +70,13 @@ class ApplicationController < Sinatra::Base
   #   service.to_json(include: [:services, :reviews])
   # end
 
-  patch '/services/:id' do
-    service = Service.find_by(id: params[:id])
-    service.update(
-      has_wifi: params[:has_wifi]
-    )
-    service.to_json
-  end
+  # patch '/services/:id' do
+  #   service = Service.find_by(id: params[:id])
+  #   service.update(
+  #     has_wifi: params[:has_wifi]
+  #   )
+  #   service.to_json
+  # end
 
   # # reviews routes
 
@@ -82,13 +90,6 @@ class ApplicationController < Sinatra::Base
   #   review.to_json
   # end
 
-  #  patch '/reviews/:id' do
-  #   review = Review.find_by(id: params[:id])
-  #   review.update(
-  #     score: params[:score],
-  #     comment: params[:comment]
-  #   )
-  #   review.to_json
-  # end
+  
 
 end
