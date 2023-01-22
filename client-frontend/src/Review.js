@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
-const Review = ({review, onDeleteReview}) => {
+const ReviewItem = ({review, onDeleteReview}) => {
 
   const {id, rating, comment, workspace_id, updated_at} = review
+
 
 
   const handleDeleteClick = () => {
@@ -14,13 +15,14 @@ const Review = ({review, onDeleteReview}) => {
   return (
 
     <div>
-
           <hr />
-
               <p>
               <b>User_{Math.floor(Math.random() * 100)}</b> <em>({updated_at.slice(0, 10)})</em>: 
               </p>
               {comment}
+              <br /><br />
+              {rating} stars
+              <br /><br />
 
             <div>
             <DeleteOutlineOutlinedIcon onClick={handleDeleteClick} />
@@ -34,4 +36,4 @@ const Review = ({review, onDeleteReview}) => {
 }
 
 
-export default Review
+export default ReviewItem

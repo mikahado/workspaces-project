@@ -7,11 +7,10 @@ import Button from '@mui/material/Button';
 const Workspace = () => {
 
     const [workspace, setWorkspace] = useState({
-        reviews: []
+      reviews: [],
+      services: []
     })
 
-       //it is ALL ABOUT THE ID
-  
     const [showReview, setShowReview] = useState(false)
 
     const params = useParams()
@@ -32,22 +31,18 @@ const Workspace = () => {
     }
 
     const onReviewDelete = (id) => {
-        const updatedReviews = workspace.reviews.filter((w) => w.id !== id);    
-        //below line should be passed to parent, or update state in this component 
-        setWorkspace(updatedReviews);
-        }
+      const updatedReviews = workspace.reviews.filter((w) => w.id !== id);
+      setWorkspace({...workspace, reviews: updatedReviews});
+    }
 
-     const handleAddReview = (newReview) => {
-        const addNewReview = [...workspace.reviews, newReview]
-        console.log(addNewReview)
-        setWorkspace(addNewReview)
-        }
+    const handleAddReview = (newReview) => {
+    setWorkspace({...workspace, reviews: [...workspace.reviews, newReview]});
+    }
 
     const reviewItems = workspace.reviews.map(w => 
-        <Review key={w.id} review={w} onDeleteReview={handleDeleteReview}/> )
+        <Review key={w.id} review={w} onDeleteReview={handleDeleteReview} /> )
 
-
-    const handleShowReviewClick = ({onAddReview}) => {
+    const handleShowReviewClick = () => {
         setShowReview(!showReview)
       }
 

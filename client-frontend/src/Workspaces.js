@@ -39,10 +39,7 @@ const Workspaces = () => {
       // onDeleteReview={onDeleteReview}
       // onAddReview={onAddReview}
       // onUpdatedService={onUpdatedService}
-      />)
-
-
-   
+      />)  
 
     const handleSearchChange = (e) => {
       setSearch(e.target.value)
@@ -60,7 +57,8 @@ const Workspaces = () => {
 
     <div >
 
-        <h1 > WORKSPACES</h1>
+        <h1>≡🬀 WORKSPACES 🬀≡</h1>
+        <h3>-New York City-</h3>
         
         <Search handleSearchChange={handleSearchChange} />
     
