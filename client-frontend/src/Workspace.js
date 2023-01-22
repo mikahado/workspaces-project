@@ -30,7 +30,6 @@ const Workspace = () => {
       .then(() => onReviewDelete(id))
     }
 
-
     //handleEditREview is currently mapping the ENTIRE array! just need that one review. 
 
     const handleEditReview = (editedReview) => {
@@ -59,7 +58,8 @@ const Workspace = () => {
           key={w.id} 
           review={w} 
           onDeleteReview={handleDeleteReview} 
-          onEditReview={handleEditReview} /> )
+          onEditReview={handleEditReview} 
+          workspace_id={workspace.id} /> )
 
     const handleShowReviewClick = () => {
         setShowReview(!showReview)

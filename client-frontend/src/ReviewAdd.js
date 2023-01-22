@@ -4,9 +4,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-const ReviewAdd = ({onAddReview, reviews, workspace_id}) => {
-
-  // const workspace_id = reviews.map(r => r.workspace_id)[0]
+const ReviewAdd = ({onAddReview, workspace_id}) => {
   
   const [review, setReview] = useState({
     rating: 3,
@@ -50,7 +48,6 @@ const ReviewAdd = ({onAddReview, reviews, workspace_id}) => {
         <form onSubmit={handleReviewSubmit}>
           <br />
           
-          {/* <input type="textarea" name="comment" value={review.comment} onChange={handleChangeReview} /> */}
           
           <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '25ch' },}} noValidate autoComplete="off" >
 

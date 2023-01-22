@@ -6,22 +6,27 @@ import Button from '@mui/material/Button';
 
 const ReviewEdit = ({onEditReview, workspace_id}) => {
 
-  const [editedBody, setEditedBody] = useState("")
+  const [editedBody, setEditedBody] = useState({
+    comment: ""
+  })
 
   const params = useParams()
 
   const handleEditSubmit = (e) => {
     e.preventDefault()
+
+    const updatedBody = {
+        comment: editedBody
+    }
     
     fetch(`http://localhost:9292/reviews/${params.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          comment: editedBody,
-          workspace_id: workspace_id
-        }),
+        body: JSON.stringify(
+          updatedBody
+        ),
       })
         .then((r) => r.json())
         .then((updatedData) => onEditReview(updatedData));
