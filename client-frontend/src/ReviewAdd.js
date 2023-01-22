@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
 const ReviewAdd = ({onAddReview, reviews}) => {
 
   const workspace_id = reviews.map(r => r.workspace_id)[0]
@@ -45,7 +49,15 @@ const ReviewAdd = ({onAddReview, reviews}) => {
     <div className="App">
         <form onSubmit={handleReviewSubmit}>
           <br />
-          <label>Comment </label><br/> <input type="textarea" name="comment" value={review.comment} onChange={handleChangeReview} />
+          
+          {/* <input type="textarea" name="comment" value={review.comment} onChange={handleChangeReview} /> */}
+          
+          <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '25ch' },}} noValidate autoComplete="off" >
+
+            <TextField name="comment" onChange={handleChangeReview} value={review.comment} id="standard-basic" label="Your Review" variant="standard" />
+          
+            </Box>
+
           <br /><br />
           <label>Rate</label>
           <div>          
@@ -57,7 +69,8 @@ const ReviewAdd = ({onAddReview, reviews}) => {
           </div>
           <br />
           
-          <button type="submit">Submit</button>
+          {/* <button type="submit">Submit</button> */}
+          <Button type="submit" variant="contained">Submit</Button>
 
         </form>
 

@@ -13,6 +13,9 @@ const Workspace = () => {
 
     const [showReview, setShowReview] = useState(false)
 
+    const [editedBody, setEditedBody] = useState("")
+
+
     const params = useParams()
 
     useEffect(() => {
@@ -30,6 +33,18 @@ const Workspace = () => {
       .then(() => onReviewDelete(id))
     }
 
+    const handleEditReview = (editedReview) => {
+      const updatedReview = workspace.reviews.map(r => {
+        if (r.id === editedReview.id) {
+          return updatedReview;
+        } else {
+          return workspace;
+        }
+      });
+      setWorkspace({...workspace, reviews: [...workspace.reviews, updatedReview]});
+    }
+      
+
     const onReviewDelete = (id) => {
       const updatedReviews = workspace.reviews.filter((w) => w.id !== id);
       setWorkspace({...workspace, reviews: updatedReviews});
@@ -40,7 +55,7 @@ const Workspace = () => {
     }
 
     const reviewItems = workspace.reviews.map(w => 
-        <Review key={w.id} review={w} onDeleteReview={handleDeleteReview} /> )
+        <Review key={w.id} review={w} onDeleteReview={handleDeleteReview} onEditReview={handleEditReview} /> )
 
     const handleShowReviewClick = () => {
         setShowReview(!showReview)
@@ -57,6 +72,7 @@ const Workspace = () => {
         <br />
         <br />
         <br />
+        
         <Button variant="outlined" onClick={handleShowReviewClick}>Write a Review</Button>
               <br />
 

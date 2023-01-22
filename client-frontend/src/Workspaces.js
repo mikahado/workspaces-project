@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import WorkspaceLink from './WorkspaceLink'
 
 import WorkspaceCard from './WorkspaceCard'
 import Filter from './Filter'
@@ -28,6 +27,7 @@ const Workspaces = () => {
 
    //pre-Noyes
 
+
   const filterBySearch = workspaces.filter(c => c.title.toLowerCase().includes(search.toLowerCase()))
 
   const workspaceCard = filterBySearch.map((w) => 
@@ -49,8 +49,10 @@ const Workspaces = () => {
       setShowFilter(!showFilter)
     }
 
-    const handleFilterChange = () => {
-      
+    const handleFilterChange = (kindOfPlace) => {
+      console.log(kindOfPlace)
+      const filterByType = workspaces.filter(w => w.services.filter(s => s.kind_of_place === kindOfPlace))
+      console.log(filterByType)
     }
 
   return (
@@ -63,7 +65,7 @@ const Workspaces = () => {
         <Search handleSearchChange={handleSearchChange} />
     
         <Button  onClick={handleFilterClick} variant="contained">{showFilter ? "Hide": "Filter"}</Button>
-        {showFilter ? <Filter /> : null}
+        {showFilter ? <Filter handleFilterChange={handleFilterChange} /> : null}
 
         <WorkspaceGrid workspaceCard={workspaceCard}/>
 

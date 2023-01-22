@@ -2,9 +2,17 @@ import React, { useEffect, useState } from 'react'
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
-const ReviewItem = ({review, onDeleteReview}) => {
+import ReviewEdit from './ReviewEdit'
 
-  const {id, rating, comment, workspace_id, updated_at} = review
+const ReviewItem = ({review, onDeleteReview, onEditReview}) => {
+
+  const [showEditor, setShowEditor] = useState(false)
+
+  const {id, rating, comment, updated_at} = review
+
+  const handleEditClick = () => {
+    setShowEditor(!showEditor)
+  }
 
 
 
@@ -26,7 +34,16 @@ const ReviewItem = ({review, onDeleteReview}) => {
 
             <div>
             <DeleteOutlineOutlinedIcon onClick={handleDeleteClick} />
-            <ModeEditIcon />
+            <ModeEditIcon onClick={handleEditClick}/>
+
+            {showEditor ? 
+
+              <ReviewEdit onEditReview={onEditReview}/>
+
+                  : null 
+            }
+       
+
        </div>
       <hr />
 

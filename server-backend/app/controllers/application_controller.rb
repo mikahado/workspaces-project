@@ -32,8 +32,13 @@ class ApplicationController < Sinatra::Base
     reviews.to_json
   end
 
-  
-
+  patch '/services/:id' do
+    service = Service.find_by(id: params[:id])
+    service.update(
+      has_wifi: params[:has_wifi]
+    )
+    service.to_json
+  end
 
   
   # post '/workspaces' do
