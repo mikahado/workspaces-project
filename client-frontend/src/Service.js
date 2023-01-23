@@ -7,7 +7,6 @@ const Service = ({service}) => {
        <p>{service.kind_of_place}</p>
        <p>{service.description}</p>
        <p>{service.has_wifi ? "Free WiFi" : "No WiFi"}</p>
-       <button>Edit WiFi</button>
     </div>
   )
 }
