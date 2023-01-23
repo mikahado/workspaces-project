@@ -16,7 +16,7 @@ const WorkspaceCard = ({ workspace }) => {
         )
 
     const allRatings = reviews.map(r => r.rating) 
-    const ratingsAvg = allRatings.reduce((a,b) => a + b) / allRatings.length 
+    const ratingsAvg = reviews.length ? allRatings.reduce((a,b) => a + b) / allRatings.length : null
 
   return (
     <div>

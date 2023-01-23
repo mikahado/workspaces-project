@@ -12,6 +12,7 @@ const Workspaces = () => {
 
   const [workspaces, setWorkspaces] = useState([
   ])
+
   const [search, setSearch] = useState("")
   const [showAddForm, setShowAddForm] = useState(false)
   // const [showFilter, setShowFilter] = useState(false)
@@ -28,7 +29,7 @@ const Workspaces = () => {
 
   // how do i get a search and a filter working on the same page?
 
-  const filterBySearch = workspaces.filter(c => c.title.toLowerCase().includes(search.toLowerCase()));
+  const filterBySearch = workspaces.filter(c => c.title.toLowerCase().includes(search.toLowerCase()))
 
   const workspaceCard = filterBySearch.map((w) => 
     <WorkspaceCard 
@@ -46,7 +47,7 @@ const Workspaces = () => {
 
     // below is changing the value of state direction instead of making a chainPropTypes. but when i make a copy then my page displays the original and copy!
     const handleAddWorkspace = (newWorkspace) => {
-      setWorkspaces(workspaces, newWorkspace);
+      setWorkspaces([...workspaces, newWorkspace]);
     }
    
     // const handleFilterClick = () => {
