@@ -32,17 +32,18 @@ const Workspace = () => {
 
     //handleEditREview is currently mapping the ENTIRE array! just need that one review. 
 
-    const handleEditReview = (editedReview) => {
-      const updatedReviews = workspace.reviews.map(r => {
-        if (r.id === editedReview.id) {
-          return editedReview;
-        } else {
-          return r;
-        }
-      });
-      setWorkspace({...workspace, reviews: updatedReviews});
-    }
-      
+    //editedReview.id is not being correctly found
+
+    // const handleEditReview = (editedReview, reviewId) => {
+    //   const updatedReview = workspace.reviews.map(r => {
+    //     if (r.id === reviewId) {
+    //       return editedReview;
+    //     } else {
+    //       return r;
+    //     }
+    //   });
+    //   setWorkspace({...workspace, reviews: updatedReview});
+    // }
 
     const onReviewDelete = (id) => {
       const updatedReviews = workspace.reviews.filter((w) => w.id !== id);
@@ -57,8 +58,7 @@ const Workspace = () => {
       <ReviewItem 
           key={w.id} 
           review={w} 
-          onDeleteReview={handleDeleteReview} 
-          onEditReview={handleEditReview} 
+          onDeleteReview={handleDeleteReview}  
           workspace_id={workspace.id} /> )
 
     const handleShowReviewClick = () => {
@@ -83,6 +83,7 @@ const Workspace = () => {
         {showReview ? <ReviewAdd key={workspace.id} onAddReview={handleAddReview} reviews={workspace.reviews} workspace_id={workspace.id} /> : null}
         <br />
         < hr />
+
         {reviewItems}
 
     </div>

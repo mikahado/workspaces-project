@@ -25,8 +25,6 @@ const Workspaces = () => {
       ))
   }, [])
 
-   //pre-Noyes
-
 
   const filterBySearch = workspaces.filter(c => c.title.toLowerCase().includes(search.toLowerCase()))
 

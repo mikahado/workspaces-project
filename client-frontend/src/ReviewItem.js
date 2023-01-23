@@ -4,16 +4,17 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import ReviewEdit from './ReviewEdit'
 
 
-const ReviewItem = ({review, onDeleteReview, onEditReview, workspace_id}) => {
+const ReviewItem = ({review, onDeleteReview}) => {
 
   const [showEditor, setShowEditor] = useState(false)
 
-  const {id, rating, comment, updated_at} = review 
+  const {id, rating, comment} = review 
 
-  const handleEditClick = () => {
+  const handleShowEditor = () => {
     setShowEditor(!showEditor)
   }
 
+  
   const handleDeleteClick = () => {
       onDeleteReview(id)
     }
@@ -32,14 +33,17 @@ const ReviewItem = ({review, onDeleteReview, onEditReview, workspace_id}) => {
 
             <div>
             <DeleteOutlineOutlinedIcon onClick={handleDeleteClick} />
-            <ModeEditIcon onClick={handleEditClick}/>
+            <ModeEditIcon />
 
-            {showEditor ? 
+            <ReviewEdit />
+            
 
-              <ReviewEdit key={id} workspace_id={workspace_id} onEditReview={onEditReview}/>
+            {/* {showEditor ? 
+
+              <ReviewEdit onEditSubmit={onEditSubmit}/>
                   : null 
             }
-    
+     */}
 
        </div>
       <hr />

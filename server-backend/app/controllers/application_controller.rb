@@ -26,6 +26,11 @@ class ApplicationController < Sinatra::Base
     review.to_json
   end
 
+  get '/reviews/:id' do
+    reviews = Review.find_by(id: params[:id])
+    reviews.to_json
+  end
+
   patch '/reviews/:id' do
     review = Review.find_by(id: params[:id])
     review.update(
@@ -34,10 +39,7 @@ class ApplicationController < Sinatra::Base
     review.to_json
   end
 
-  get '/reviews' do
-    reviews = Review.all
-    reviews.to_json
-  end
+ 
 
   # patch '/services/:id' do
   #   service = Service.find_by(id: params[:id])

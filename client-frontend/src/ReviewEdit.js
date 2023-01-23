@@ -4,47 +4,27 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-const ReviewEdit = ({onEditReview, workspace_id}) => {
+const ReviewEdit = ({onSubmitClick}) => {
 
-  const [editedBody, setEditedBody] = useState({
-    comment: ""
-  })
+  const [updatedReview, setUpdatedReview] = useState("")
 
-  const params = useParams()
-
-  const handleEditSubmit = (e) => {
-    e.preventDefault()
-
-    const updatedBody = {
-        comment: editedBody
-    }
-    
-    fetch(`http://localhost:9292/reviews/${params.id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(
-          updatedBody
-        ),
-      })
-        .then((r) => r.json())
-        .then((updatedData) => onEditReview(updatedData));
-    }
+  const handleChange = (e) => {
+    setUpdatedReview(e.target.value);
+  }
+  
+  const handleSubmit = () => {
+    console.log(updatedReview)
+    onSubmitClick(updatedReview)
+  }
 
   return (
     <div>
-    
-        <Box onSubmit={handleEditSubmit} component="form" sx={{ '& > :not(style)': { m: 1, width: '25ch' },}} noValidate autoComplete="off" >
-
-      
-            <TextField onChange={e => setEditedBody(e.target.value)} value={editedBody} id="standard-basic" label="Edit your review." variant="standard" />
-            <br />
-            <Button type="submit" variant="text">Submit</Button>
-        
-
-        </Box>
-    
+        <br />
+        <form onSubmit={handleSubmit}>
+            <input type="text" placeholder="Edit review" onChange={handleChange} value={updatedReview} />
+            <br /><br />
+            <button type="submit">Submit</button>
+        </form>
     </div>
   )
 }

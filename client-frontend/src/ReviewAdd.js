@@ -66,7 +66,6 @@ const ReviewAdd = ({onAddReview, workspace_id}) => {
           </div>
           <br />
           
-          {/* <button type="submit">Submit</button> */}
           <Button type="submit" variant="contained">Submit</Button>
 
         </form>
