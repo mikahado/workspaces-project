@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-const ReviewEdit = ({onSubmitClick}) => {
+const ReviewEdit = ({onSubmitEdit}) => {
 
   const [updatedReview, setUpdatedReview] = useState("")
 
@@ -12,15 +12,15 @@ const ReviewEdit = ({onSubmitClick}) => {
     setUpdatedReview(e.target.value);
   }
   
-  const handleSubmit = () => {
+  const handleSubmitEdit = () => {
     console.log(updatedReview)
-    onSubmitClick(updatedReview)
+    onSubmitEdit(updatedReview)
   }
 
   return (
     <div>
         <br />
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmitEdit}>
             <input type="text" placeholder="Edit review" onChange={handleChange} value={updatedReview} />
             <br /><br />
             <button type="submit">Submit</button>

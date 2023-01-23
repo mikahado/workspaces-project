@@ -14,11 +14,20 @@ const ReviewItem = ({review, onDeleteReview}) => {
     setShowEditor(!showEditor)
   }
 
-  
+
   const handleDeleteClick = () => {
       onDeleteReview(id)
     }
 
+  const handleEditSubmit = (updatedReview) => {
+    const reviewEndpoint = `http://localhost:9292/reviews/${id}`
+    fetch(reviewEndpoint, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ comment: updatedReview })
+    })
+  }
+ 
   return (
 
     <div>
@@ -33,17 +42,17 @@ const ReviewItem = ({review, onDeleteReview}) => {
 
             <div>
             <DeleteOutlineOutlinedIcon onClick={handleDeleteClick} />
-            <ModeEditIcon />
+            <ModeEditIcon onClick={handleShowEditor}/>
 
-            <ReviewEdit />
+            
             
 
-            {/* {showEditor ? 
+            {showEditor ? 
 
-              <ReviewEdit onEditSubmit={onEditSubmit}/>
+              <ReviewEdit key={id} onSubmitEdit={handleEditSubmit}/>
                   : null 
             }
-     */}
+           
 
        </div>
       <hr />
