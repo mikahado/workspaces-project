@@ -42,15 +42,16 @@ const WorkspaceAdd = ({onAddWorkspace}) => {
             });
     }
 
-    
-
   return (
     <div>
 
         <Box onSubmit={handleAddSubmit} component="form" sx={{ '& > :not(style)': { m: 1, width: '25ch' },}} noValidate autoComplete="off" >
+            <br />
 
             <TextField name="title" onChange={handleChangeTitle} value={workspaceData.title} id="standard-basic" label="Name" variant="standard" />
+            
             <TextField name="address" onChange={handleChangeAddress} value={workspaceData.address} id="standard-basic" label="Address" variant="standard" />
+            <br />
 
             <Button type="submit" variant="text">Submit</Button>
 

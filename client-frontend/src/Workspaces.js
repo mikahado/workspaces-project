@@ -13,6 +13,8 @@ const Workspaces = () => {
   const [workspaces, setWorkspaces] = useState([
   ])
 
+  console.log(workspaces)
+
   const [search, setSearch] = useState("")
   const [showAddForm, setShowAddForm] = useState(false)
   // const [showFilter, setShowFilter] = useState(false)
