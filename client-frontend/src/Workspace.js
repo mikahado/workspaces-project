@@ -30,21 +30,6 @@ const Workspace = () => {
       .then(() => onReviewDelete(id))
     }
 
-    //handleEditREview is currently mapping the ENTIRE array! just need that one review. 
-
-    //editedReview.id is not being correctly found
-
-    // const handleEditReview = (editedReview, reviewId) => {
-    //   const updatedReview = workspace.reviews.map(r => {
-    //     if (r.id === reviewId) {
-    //       return editedReview;
-    //     } else {
-    //       return r;
-    //     }
-    //   });
-    //   setWorkspace({...workspace, reviews: updatedReview});
-    // }
-
     const onReviewDelete = (id) => {
       const updatedReviews = workspace.reviews.filter((w) => w.id !== id);
       setWorkspace({...workspace, reviews: updatedReviews});

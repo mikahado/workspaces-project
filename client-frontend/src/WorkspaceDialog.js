@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import { Link}  from 'react-router-dom'
 import ReviewAdd from './ReviewAdd'
-import Review from './ReviewItem'
+import Workspace from './Workspace'
+import WorkspaceCard from './WorkspaceCard'
 
 //dialog
 import Button from '@mui/material/Button';
@@ -11,23 +12,13 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-const WorkspaceDialogBox = ({id, reviews, allRatings, onAddReview, onDeleteReview, allReviews}) => {
+const WorkspaceDialog = ({allRatings}) => {
 
     const [showReview, setShowReview] = useState(false)
 
     const [open, setOpen] = useState(false);
     const [scroll, setScroll] = useState('paper');
-    
-
-     const review = reviews.map(r => 
-        <Review 
-            key={r.id}
-            review={r}
-            onDeleteReview={onDeleteReview}
-            
-            />
-        )
-
+     
     const handleClickOpen = (scrollType) => () => {
         setOpen(true);
         setScroll(scrollType);
@@ -55,11 +46,8 @@ const WorkspaceDialogBox = ({id, reviews, allRatings, onAddReview, onDeleteRevie
   return (
     <div>
 
-        <Link to={`/workspaces/${id}`}>
-          <Button onClick={handleClickOpen('paper')}>{allRatings.length} reviews</Button>
-        </Link>
+        <Button onClick={handleClickOpen('paper')}>{allRatings.length} reviews</Button>
 
-        
         <Dialog
             open={open}
             onClose={handleClose}
@@ -68,27 +56,17 @@ const WorkspaceDialogBox = ({id, reviews, allRatings, onAddReview, onDeleteRevie
             aria-describedby="scroll-dialog-description"
         >
             <DialogTitle id="scroll-dialog-title">
-
               ~REVIEWS~
-              
             </DialogTitle>
+
             <DialogContent dividers={scroll === 'paper'}>
+           
             <DialogContentText
                 id="scroll-dialog-description"
                 ref={descriptionElementRef}
                 tabIndex={-1}
             >
-              <Button variant="outlined" onClick={handleShowReviewClick}>Write a Review</Button>
-              <br />
-
-              {showReview ? <ReviewAdd onAddReview={onAddReview} reviews={reviews} handleClose={handleClose} /> : null}
-
-              <br />
-              <hr />
-              <hr />
-              {/* This is where the error comes from */}
-              {review}
-
+              
             </DialogContentText>
             </DialogContent>
                 <DialogActions>
@@ -96,12 +74,10 @@ const WorkspaceDialogBox = ({id, reviews, allRatings, onAddReview, onDeleteRevie
                 </DialogActions>
         </Dialog>
 
-        {/* <Link to={`/workspaces/${workspace.id}`} /> */}
-
     </div>
 
 
   )
 }
 
-export default WorkspaceDialogBox
+export default WorkspaceDialog

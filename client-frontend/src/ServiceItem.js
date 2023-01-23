@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Service = ({service}) => {
+const ServiceItem = ({service}) => {
  
   return (
     <div>
@@ -11,4 +11,4 @@ const Service = ({service}) => {
   )
 }
 
-export default Service
+export default ServiceItem

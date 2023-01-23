@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
-import Service from './Service'
+import ServiceItem from './ServiceItem'
 import Review from './ReviewItem'
 import WorkspaceDialog from './WorkspaceDialog'
 import Rating from '@mui/material/Rating';
@@ -30,21 +30,12 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService
       }
    
     const service = services.map(s => 
-      <Service 
+      <ServiceItem 
           key={s.id}
           service={s}
           updateWifiClick={handleUpdateWifi}
           />
         )
-
-    // const review = reviews.map(r => 
-    //   <Review 
-    //       key={r.id}
-    //       review={r}
-    //       onDeleteReview={onDeleteReview}
-          
-    //       />
-    //   )
 
     const allRatings = reviews.map(r => r.rating) 
     const ratingsAvg = allRatings.reduce((a,b) => a + b) / allRatings.length 
@@ -63,14 +54,14 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService
         <Link to={`/workspaces/${workspace.id}`}>
           <Button >{allRatings.length} reviews</Button>
         </Link>
-{/* 
-        <WorkspaceDialog 
+
+        {/* <WorkspaceDialog 
           key={id}
           reviews={reviews} 
-          // onAddReview={onAddReview} 
-          // onDeleteReview={onDeleteReview}
-          // allReviews={allReviews} 
-          // allRatings={allRatings}
+          onAddReview={onAddReview} 
+          onDeleteReview={onDeleteReview}
+          allReviews={allReviews} 
+          allRatings={allRatings}
         /> */}
         
     </div>
