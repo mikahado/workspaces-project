@@ -39,10 +39,12 @@ const ReviewItem = ({review, onDeleteReview}) => {
         <div>
           <DeleteOutlineOutlinedIcon onClick={handleDeleteClick} />
           <ModeEditIcon onClick={handleShowEditor}/>
+
           {showEditor 
             ? <ReviewEdit key={id} onSubmitEdit={handleEditSubmit}/>
             : null 
           }
+          
         </div>
       <hr />
     </div>         

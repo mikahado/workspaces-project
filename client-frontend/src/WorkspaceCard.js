@@ -22,9 +22,9 @@ const WorkspaceCard = ({ workspace }) => {
     <div>
 
         <h2>{title}</h2>
-        <p>[photo of workspace]</p>
-        {address}
-        {service}
+        [photo]<br /><br />
+        {address}<br />
+        {service}<br />
         
         <Rating name="read-only" value={Math.ceil(ratingsAvg)} readOnly />
           <br />

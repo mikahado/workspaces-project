@@ -48,11 +48,11 @@ const ReviewAdd = ({onAddReview, workspace_id}) => {
       <form onSubmit={handleReviewSubmit}>
         <br />
         
-        <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '25ch' },}} noValidate autoComplete="off" >
+      
 
           <TextField name="comment" onChange={handleChangeReview} value={review.comment} id="standard-basic" label="Your Review" variant="standard" />
         
-        </Box>
+      
 
         <br /><br />
 
