@@ -19,12 +19,12 @@ const ReviewEdit = ({onSubmitEdit}) => {
 
   return (
     <div>
-        <br />
-        <form onSubmit={handleSubmitEdit}>
-            <input type="text" placeholder="Edit review" onChange={handleChange} value={updatedReview} />
-            <br /><br />
-            <button type="submit">Submit</button>
-        </form>
+      <br />
+      <form onSubmit={handleSubmitEdit}>
+        <input type="text" placeholder="Edit review" onChange={handleChange} value={updatedReview} />
+        <br /><br />
+        <button type="submit">Submit</button>
+      </form>
     </div>
   )
 }

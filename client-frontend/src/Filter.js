@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -8,8 +8,8 @@ import FormControl from '@mui/material/FormControl';
 const Filter = ({handleFilterChange}) => {
 
     const handleFilterSelect = (e) => {
-    handleFilterChange(e.target.value)
-  }
+      handleFilterChange(e.target.value)
+      }
     
   return (
     <div >
@@ -29,8 +29,8 @@ const Filter = ({handleFilterChange}) => {
           <FormControlLabel value="Museum" control={<Radio />} label="Museum" />
           <FormControlLabel value="Diner" control={<Radio />} label="Diner" />
           <FormControlLabel value="Hotel Lobby" control={<Radio />} label="Hotel Lobby" />
-        
       </RadioGroup>
+      
     </FormControl>
 
 

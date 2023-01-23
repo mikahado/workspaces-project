@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import ServiceItem from './ServiceItem'
-import Review from './ReviewItem'
-import WorkspaceDialog from './WorkspaceDialog'
 import Rating from '@mui/material/Rating';
 import Button from '@mui/material/Button'
 
-const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService, allReviews}) => {
+const WorkspaceCard = ({workspace, onUpdatedService}) => {
 
     const {id, title, address, reviews, services} = workspace
   
@@ -54,15 +52,6 @@ const WorkspaceCard = ({workspace, onDeleteReview, onAddReview, onUpdatedService
         <Link to={`/workspaces/${workspace.id}`}>
           <Button >{allRatings.length} reviews</Button>
         </Link>
-
-        {/* <WorkspaceDialog 
-          key={id}
-          reviews={reviews} 
-          onAddReview={onAddReview} 
-          onDeleteReview={onDeleteReview}
-          allReviews={allReviews} 
-          allRatings={allRatings}
-        /> */}
         
     </div>
   )

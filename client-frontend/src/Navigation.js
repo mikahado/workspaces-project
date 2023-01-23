@@ -10,38 +10,29 @@ function Navigation() {
     <div>
       <br />
 
-      <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              '& > *': {
-                m: 1,
-              },
-            }}
-          >
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', '& > *': { m: 1, }, }} >
 
-          <ButtonGroup size="large" variant="contained" aria-label="contained button group">
+        <ButtonGroup size="large" variant="contained" aria-label="contained button group">
 
-              <Button>
-                <NavLink
-                  to="/"
-                  end
-                >
-                  {<Diversity2RoundedIcon />}
-                </NavLink>
-              </Button>
+          <Button>
+            <NavLink
+              to="/"
+              end
+            >
+              {<Diversity2RoundedIcon />}
+            </NavLink>
+          </Button>
 
-              <Button>
-                <NavLink
-                  to="/workspaces"
-                  end
-                >
-                  Workspaces 
-                </NavLink>
-              </Button>
+          <Button>
+            <NavLink
+              to="/workspaces"
+              end
+            >
+              Workspaces 
+            </NavLink>
+          </Button>
 
-          </ButtonGroup>  
+        </ButtonGroup>  
 
         </Box>
 

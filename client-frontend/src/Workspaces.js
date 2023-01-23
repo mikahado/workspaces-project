@@ -13,18 +13,19 @@ const Workspaces = () => {
   ])
 
   const [search, setSearch] = useState("")
-  const [showFilter, setShowFilter] = useState(false)
+  // const [showFilter, setShowFilter] = useState(false)
+  // const [filteredWorkspaces, setFilteredWorkspaces] = useState([])
 
   useEffect(() => {
     fetch("http://localhost:9292/workspaces")
     .then(r => r.json())
     .then((data => {
-      console.log(data)
       setWorkspaces(data)
     }
       ))
   }, [])
 
+  // how do i get a search and a filter working on the same page?
 
   const filterBySearch = workspaces.filter(c => c.title.toLowerCase().includes(search.toLowerCase()))
 
@@ -32,41 +33,36 @@ const Workspaces = () => {
     <WorkspaceCard 
       key={w.id}
       workspace={w}
-      // allReviews={allReviews}
-      // allServices={allServices}
-      // onDeleteReview={onDeleteReview}
-      // onAddReview={onAddReview}
-      // onUpdatedService={onUpdatedService}
       />)  
 
     const handleSearchChange = (e) => {
       setSearch(e.target.value)
     }
    
-    const handleFilterClick = () => {
-      setShowFilter(!showFilter)
-    }
+    // const handleFilterClick = () => {
+    //   setShowFilter(!showFilter)
+    // }
 
-    const handleFilterChange = (kindOfPlace) => {
-      console.log(kindOfPlace)
-      const filterByType = workspaces.filter(w => w.services.filter(s => s.kind_of_place === kindOfPlace))
-      console.log(filterByType)
-    }
+    // const handleFilterChange = (kindOfPlace) => {
+    //   setFilteredWorkspaces(workspaces.filter(w => w.services.some(s => s.kind_of_place === kindOfPlace)));
+    // }
 
   return (
 
     <div >
-
+        <br />
         <h1>≡🬀 WORKSPACES 🬀≡</h1>
-        <h3>-New York City-</h3>
-        
+        {/* <h3>-New York City-</h3> */}
+        <br />        
         <Search handleSearchChange={handleSearchChange} />
     
-        <Button  onClick={handleFilterClick} variant="contained">{showFilter ? "Hide": "Filter"}</Button>
-        {showFilter ? <Filter handleFilterChange={handleFilterChange} /> : null}
+        {/* <Button  onClick={handleFilterClick} variant="outlined"> */}
+          
+        {/* {showFilter ? "Hide": "Filter"}</Button>
+
+        {showFilter ? <Filter handleFilterChange={handleFilterChange} /> : null} */}
 
         <WorkspaceGrid workspaceCard={workspaceCard}/>
-
     </div>
 
   )
