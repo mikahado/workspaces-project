@@ -15,6 +15,15 @@ class ApplicationController < Sinatra::Base
     workspace.to_json(include: [:services, :reviews])
   end
 
+ post '/workspaces' do
+    new_workspace = Workspace.create(
+        title: params[:title], 
+        address: params[:address]
+        # Can I get seed data here?
+    )
+    new_workspace.to_json
+  end
+
   post '/reviews' do
     review = Review.create(params)
     review.to_json
@@ -55,14 +64,7 @@ class ApplicationController < Sinatra::Base
   # end
 
   
-  # post '/workspaces' do
-  #   review = Review.create(
-  #       rating: params[:rating], 
-  #       comment: params[:comment] ,
-  #       workspace_id: params[:workspace_id]
-  #   )
-  #   review.to_json
-  # end
+ 
 
   # # services routes
 

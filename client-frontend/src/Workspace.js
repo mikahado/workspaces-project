@@ -31,12 +31,12 @@ const Workspace = () => {
     }
 
     const onReviewDelete = (id) => {
-      const updatedReviews = workspace.reviews.filter((w) => w.id !== id);
+      const updatedReviews = workspace.reviews.filter((w) => w.id !== id)
       setWorkspace({...workspace, reviews: updatedReviews});
     }
 
     const handleAddReview = (newReview) => {
-    setWorkspace({...workspace, reviews: [...workspace.reviews, newReview]});
+    setWorkspace({...workspace, reviews: [...workspace.reviews, newReview]})
     }
 
     const reviewItems = workspace.reviews.map(w => 
