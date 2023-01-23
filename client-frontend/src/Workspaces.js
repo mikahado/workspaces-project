@@ -44,8 +44,9 @@ const Workspaces = () => {
       setShowAddForm(!showAddForm)
     }
 
+    // below is changing the value of state direction instead of making a chainPropTypes. but when i make a copy then my page displays the original and copy!
     const handleAddWorkspace = (newWorkspace) => {
-      setWorkspaces([...workspaces, newWorkspace]);
+      setWorkspaces(workspaces, newWorkspace);
     }
    
     // const handleFilterClick = () => {

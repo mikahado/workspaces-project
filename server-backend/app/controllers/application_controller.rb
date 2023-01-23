@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
         address: params[:address]
         # Can I get seed data here?
     )
-    new_workspace.to_json
+    new_workspace.to_json(include: [:services, :reviews])
   end
 
   post '/reviews' do

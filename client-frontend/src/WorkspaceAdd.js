@@ -40,8 +40,6 @@ const WorkspaceAdd = ({onAddWorkspace}) => {
             .then((newData) => {
             onAddWorkspace(newData);
             });
-
-
     }
 
     
