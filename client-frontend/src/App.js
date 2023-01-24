@@ -10,10 +10,10 @@ import './App.css';
 function App() {
   
   return (
-    
+    <div className="App">
   <Router> 
     <Navigation />  
-      <div className="App">
+      
         <Routes>
           <Route exact path="/" 
             element={<Home />} 
@@ -25,8 +25,9 @@ function App() {
             element={<Workspace />} 
             />
         </Routes>
-      </div>  
+     
   </Router>
+  </div>  
   );
 }
 
