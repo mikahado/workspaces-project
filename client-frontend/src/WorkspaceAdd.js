@@ -13,12 +13,10 @@ const WorkspaceAdd = ({onAddWorkspace}) => {
 
     const handleChangeTitle = (e) => {
         setWorkspaceData({...workspaceData, [e.target.name]: e.target.value})
-
     }
 
     const handleChangeAddress = (e) => {
         setWorkspaceData({...workspaceData, [e.target.name]: e.target.value})
-
     }
 
     const handleAddSubmit = (e) => {

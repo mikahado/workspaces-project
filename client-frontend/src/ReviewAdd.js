@@ -46,13 +46,9 @@ const ReviewAdd = ({onAddReview, workspace_id}) => {
     <div className="App">
       <form onSubmit={handleReviewSubmit}>
         <br />
-        
-      
-
+             
           <TextField name="comment" onChange={handleChangeReview} value={review.comment} id="standard-basic" label="Your Review" variant="standard" />
         
-      
-
         <br /><br />
 
         <label>Rate</label>

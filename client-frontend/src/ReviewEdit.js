@@ -13,7 +13,6 @@ const ReviewEdit = ({onSubmitEdit}) => {
   }
   
   const handleSubmitEdit = () => {
-    console.log(updatedReview)
     onSubmitEdit(updatedReview)
   }
 

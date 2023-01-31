@@ -11,6 +11,8 @@ const Workspace = () => {
       services: []
     })
 
+    console.log(workspace)
+
     const [showReview, setShowReview] = useState(false)
 
     const params = useParams()
