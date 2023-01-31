@@ -16,7 +16,7 @@ const Workspaces = () => {
   const [search, setSearch] = useState("")
   const [showAddForm, setShowAddForm] = useState(false)
   // const [showFilter, setShowFilter] = useState(false)
-  // const [filteredWorkspaces, setFilteredWorkspaces] = useState([])
+  // const [filterByType, setFilterByType] = useState([])
 
   useEffect(() => {
     fetch("http://localhost:9292/workspaces")
@@ -26,8 +26,6 @@ const Workspaces = () => {
     }
       ))
   }, [])
-
-  // how do i get a search and a filter working on the same page?
 
   const filterBySearch = workspaces.filter(c => c.title.toLowerCase().includes(search.toLowerCase()))
 
@@ -45,7 +43,6 @@ const Workspaces = () => {
       setShowAddForm(!showAddForm)
     }
 
-    // below is changing the value of state direction instead of making a chainPropTypes. but when i make a copy then my page displays the original and copy!
     const handleAddWorkspace = (newWorkspace) => {
       setWorkspaces([...workspaces, newWorkspace]);
     }
@@ -57,13 +54,17 @@ const Workspaces = () => {
     // const handleFilterChange = (kindOfPlace) => {
     //   setFilteredWorkspaces(workspaces.filter(w => w.services.some(s => s.kind_of_place === kindOfPlace)));
     // }
+    //   const handleFilterChange = (kindOfPlace) => {
+    //   setFilterByType(kindOfPlace);
+    // }
+    
 
   return (
 
     <div >
         <br />
         <h1>≡🬀 WORKSPACES 🬀≡</h1>
-        {/* <h3>-New York City-</h3> */}
+        <h3>-New York City-</h3>
         <br />        
         <Search handleSearchChange={handleSearchChange} />
 
@@ -74,9 +75,9 @@ const Workspaces = () => {
         <br />
         < hr />
     
-        {/* <Button  onClick={handleFilterClick} variant="outlined"> */}
+        {/* <Button  onClick={handleFilterClick} variant="outlined">
           
-        {/* {showFilter ? "Hide": "Filter"}</Button>
+        {showFilter ? "Hide": "Filter"}</Button>
 
         {showFilter ? <Filter handleFilterChange={handleFilterChange} /> : null} */}
 

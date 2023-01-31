@@ -47,24 +47,20 @@ const ReviewAdd = ({onAddReview, workspace_id}) => {
       <form onSubmit={handleReviewSubmit}>
         <br />
         
-      
-
           <TextField name="comment" onChange={handleChangeReview} value={review.comment} id="standard-basic" label="Your Review" variant="standard" />
         
-      
+          <br /><br />
 
-        <br /><br />
+          <label>Rate</label>
+          <div>          
+            <label>1★<input type="radio" name="rating" value={1} onChange={handleChangeRating}/> &nbsp; </label>
+            <label>2★<input type="radio" name="rating" value={2} onChange={handleChangeRating}/> &nbsp; </label>
+            <label>3★<input type="radio" name="rating" value={3} onChange={handleChangeRating}/> &nbsp; </label>
+            <label>4★<input type="radio" name="rating" value={4} onChange={handleChangeRating}/> &nbsp; </label>
+            <label>5★<input type="radio" name="rating" value={5} onChange={handleChangeRating}/> &nbsp; </label>
+          </div>
 
-        <label>Rate</label>
-        <div>          
-          <label>1★<input type="radio" name="rating" value={1} onChange={handleChangeRating}/> &nbsp; </label>
-          <label>2★<input type="radio" name="rating" value={2} onChange={handleChangeRating}/> &nbsp; </label>
-          <label>3★<input type="radio" name="rating" value={3} onChange={handleChangeRating}/> &nbsp; </label>
-          <label>4★<input type="radio" name="rating" value={4} onChange={handleChangeRating}/> &nbsp; </label>
-          <label>5★<input type="radio" name="rating" value={5} onChange={handleChangeRating}/> &nbsp; </label>
-        </div>
-
-        <br />
+          <br />
         
         <Button type="submit" variant="contained">Submit</Button>
 

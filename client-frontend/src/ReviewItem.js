@@ -18,8 +18,7 @@ const ReviewItem = ({review, onDeleteReview}) => {
     }
 
   const handleEditSubmit = (updatedReview) => {
-    const reviewEndpoint = `http://localhost:9292/reviews/${id}`
-    fetch(reviewEndpoint, {
+    fetch(`http://localhost:9292/reviews/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ comment: updatedReview })
