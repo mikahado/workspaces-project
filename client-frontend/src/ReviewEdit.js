@@ -1,25 +1,32 @@
 import React, {useState} from 'react'
-import {useParams} from 'react-router-dom'
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 
-const ReviewEdit = ({onSubmitEdit}) => {
+const ReviewEdit = ({onEditReview, id}) => {
 
   const [updatedReview, setUpdatedReview] = useState("")
+
+
+  const handleEditSubmit = (e) => {
+    e.preventDefault()
+
+    fetch(`http://localhost:9292/reviews/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        comment: updatedReview
+      })
+    })
+    .then(r => r.json())
+    .then(data => onEditReview(data))
+  }
 
   const handleChange = (e) => {
     setUpdatedReview(e.target.value);
   }
   
-  const handleSubmitEdit = () => {
-    onSubmitEdit(updatedReview)
-  }
-
   return (
     <div>
       <br />
-      <form onSubmit={handleSubmitEdit}>
+      <form onSubmit={handleEditSubmit}>
         <input type="text" placeholder="Edit review" onChange={handleChange} value={updatedReview} />
         <br /><br />
         <button type="submit">Submit</button>

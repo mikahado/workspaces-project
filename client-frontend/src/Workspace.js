@@ -11,7 +11,7 @@ const Workspace = () => {
       services: []
     })
 
-    console.log(workspace)
+    // console.log(workspace)
 
     const [showReview, setShowReview] = useState(false)
 
@@ -41,11 +41,33 @@ const Workspace = () => {
     setWorkspace({...workspace, reviews: [...workspace.reviews, newReview]})
     }
 
+    const handleEditReview = (editedReview) => {
+      console.log(editedReview)
+      const updatedReviews = workspace.reviews.map((review) => {
+        if (review.id === editedReview.id) {
+          return editedReview;
+        }
+        return review
+      })
+      setWorkspace({ ...workspace, reviews: updatedReviews });
+    }
+
+    // function updateItem(newItem) {
+    //   const updatedItems = items.map(item => {
+    //     if (item.id === newItem.id) {
+    //       return newItem;
+    //     }
+    //     return item;
+    //   });
+    //   setItems(updatedItems);
+    // }
+
     const reviewItems = workspace.reviews.map(w => 
       <ReviewItem 
           key={w.id} 
           review={w} 
-          onDeleteReview={handleDeleteReview}  
+          onDeleteReview={handleDeleteReview} 
+          onEditReview={handleEditReview} 
           workspace_id={workspace.id} /> )
 
     const handleShowReviewClick = () => {

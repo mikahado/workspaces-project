@@ -3,9 +3,12 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import ReviewEdit from './ReviewEdit'
 
-const ReviewItem = ({review, onDeleteReview}) => {
+const ReviewItem = ({review, onDeleteReview, onEditReview}) => {
 
   const [showEditor, setShowEditor] = useState(false)
+  // const [edit, setEdit] = useState({
+  //   comment: ""
+  // })
 
   const {id, rating, comment} = review 
 
@@ -17,14 +20,16 @@ const ReviewItem = ({review, onDeleteReview}) => {
       onDeleteReview(id)
     }
 
-  const handleEditSubmit = (updatedReview) => {
-    const reviewEndpoint = `http://localhost:9292/reviews/${id}`
-    fetch(reviewEndpoint, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ comment: updatedReview })
-    })
-  }
+  // const handleEditSubmit = (e) => {
+  //   e.preventDefault()
+  //   fetch(`http://localhost:9292/reviews/${id}`, {
+  //     method: "PATCH",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(edit)
+  //   })
+  //   .then(r => r.json())
+  //   .then(editedReview => (onEditReview(editedReview)))
+  // }
  
   return (
 
@@ -41,7 +46,11 @@ const ReviewItem = ({review, onDeleteReview}) => {
           <ModeEditIcon onClick={handleShowEditor}/>
 
           {showEditor 
-            ? <ReviewEdit key={id} onSubmitEdit={handleEditSubmit}/>
+            ? <ReviewEdit 
+                key={id} 
+                id={id} 
+                onEditReview={onEditReview}
+                />
             : null 
           }
           
