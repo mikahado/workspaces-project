@@ -19,13 +19,14 @@ class ApplicationController < Sinatra::Base
     new_workspace = Workspace.create(
         title: params[:title], 
         address: params[:address]
-        # Can I get seed data here?
     )
     new_workspace.to_json(include: [:services, :reviews])
   end
 
   post '/reviews' do
-    review = Review.create(params)
+    # review = Review.create(params)
+    workspace = Workspace.find_by(id: params[:workspace_id])
+    review = workspace.reviews.create(params)
     review.to_json
   end
 
