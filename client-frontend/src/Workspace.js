@@ -42,8 +42,7 @@ const Workspace = () => {
     }
 
     const handleEditReview = (editedReview) => {
-      console.log(editedReview)
-      const updatedReviews = workspace.reviews.map((review) => {
+       const updatedReviews = workspace.reviews.map((review) => {
         if (review.id === editedReview.id) {
           return editedReview;
         }

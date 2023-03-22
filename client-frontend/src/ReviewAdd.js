@@ -31,7 +31,7 @@ const ReviewAdd = ({onAddReview, workspace_id}) => {
     .then((newData) => {
 
     onAddReview(newData);
-    });
+    })
   }
 
   const handleChangeReview = (e) => {
